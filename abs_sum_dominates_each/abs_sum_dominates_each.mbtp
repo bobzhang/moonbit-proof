@@ -1,0 +1,7 @@
+predicate abs_prefix_bounded(xs : FixedArray[Int], sum : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → ((xs[k] <= sum) && (-xs[k] <= sum))
+}
+
+predicate abs_sum_dominates_each_ok(xs : FixedArray[Int], result : Int) {
+  (result >= 0) && abs_prefix_bounded(xs, result, xs.length())
+}
