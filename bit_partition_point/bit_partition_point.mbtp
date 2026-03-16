@@ -1,0 +1,27 @@
+predicate in_bounds(xs : FixedArray[Int], i : Int) {
+  (0 <= i) && (i < xs.length())
+}
+
+predicate bits(xs : FixedArray[Int]) {
+  ∀ i : Int, in_bounds(xs, i) → ((xs[i] == 0) || (xs[i] == 1))
+}
+
+predicate bit_sorted(xs : FixedArray[Int]) {
+  ∀ i : Int, ∀ j : Int,
+    ((in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j)) →
+      xs[i] <= xs[j]
+}
+
+predicate all_zero_before(xs : FixedArray[Int], idx : Int) {
+  ∀ i : Int, ((0 <= i) && (i < idx)) → xs[i] == 0
+}
+
+predicate all_one_from(xs : FixedArray[Int], idx : Int) {
+  ∀ i : Int, ((idx <= i) && (i < xs.length())) → xs[i] == 1
+}
+
+predicate bit_partition_ok(xs : FixedArray[Int], result : Int) {
+  (0 <= result) && (result <= xs.length()) &&
+  all_zero_before(xs, result) &&
+  all_one_from(xs, result)
+}

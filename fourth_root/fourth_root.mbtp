@@ -1,0 +1,8 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate fourth_root_ok(n : Int, result : Int) {
+  (result * result * result * result <= n) &&
+  (n < (result + 1) * (result + 1) * (result + 1) * (result + 1))
+}

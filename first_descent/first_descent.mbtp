@@ -1,0 +1,21 @@
+predicate adj_sorted_upto(xs : FixedArray[Int], len : Int) {
+  ∀ k : Int, ((0 <= k) && (k + 1 < len)) → xs[k] <= xs[k + 1]
+}
+
+predicate adj_sorted_when_unfound(
+  xs : FixedArray[Int],
+  found : Int,
+  len : Int
+) {
+  ∀ k : Int, ((0 <= k) && (k + 1 < len) && (found == -1)) → xs[k] <= xs[k + 1]
+}
+
+predicate first_descent_ok(xs : FixedArray[Int], result : Int) {
+  ((result == -1) && adj_sorted_upto(xs, xs.length())) ||
+  (
+    (0 <= result) &&
+    (result + 1 < xs.length()) &&
+    (xs[result] > xs[result + 1]) &&
+    adj_sorted_upto(xs, result + 1)
+  )
+}
