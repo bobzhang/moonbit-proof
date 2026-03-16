@@ -1,0 +1,9 @@
+predicate has_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+predicate tv_ok(xs : FixedArray[Int], result : Int) {
+  (result >= xs[xs.length() - 1] - xs[0]) &&
+  (result >= xs[0] - xs[xs.length() - 1]) &&
+  (result >= 0)
+}
