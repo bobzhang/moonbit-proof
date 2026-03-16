@@ -89,3 +89,15 @@ for lo = 0, hi = n + 1; lo < hi - 1; { ... }
 **Workaround:** Restructure algorithms to use binary search patterns with
 `lo < hi - 1` or `lo < hi` conditions. For example, integer square root and
 division by subtraction can both be reformulated as binary search.
+
+### Empty `moon.pkg` manifests are not JSON
+
+After migrating from `moon.pkg.json` to `moon.pkg`, an "empty package config"
+is an empty `moon.pkg` file. Writing `{}` causes a parse failure such as:
+
+```text
+Parsing error: UnexpectedToken(LBRACE ...)
+```
+
+**Workaround:** For packages with no special settings, create an empty
+`moon.pkg` file instead of a JSON object.

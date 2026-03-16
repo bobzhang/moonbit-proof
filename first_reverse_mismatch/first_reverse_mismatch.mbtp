@@ -1,0 +1,39 @@
+predicate same_length(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  xs.length() == ys.length()
+}
+
+predicate reverse_prefix_when_unfound(
+  xs : FixedArray[Int],
+  ys : FixedArray[Int],
+  found : Int,
+  len : Int
+) {
+  ∀ k : Int,
+    ((0 <= k) && (k < len) && (found == -1)) →
+      xs[k] == ys[ys.length() - 1 - k]
+}
+
+predicate reverse_equal_before(
+  xs : FixedArray[Int],
+  ys : FixedArray[Int],
+  len : Int
+) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → xs[k] == ys[ys.length() - 1 - k]
+}
+
+predicate reverse_mismatch_at(
+  xs : FixedArray[Int],
+  ys : FixedArray[Int],
+  idx : Int
+) {
+  (0 <= idx) && (idx < xs.length()) && (xs[idx] != ys[ys.length() - 1 - idx])
+}
+
+predicate first_reverse_mismatch_ok(
+  xs : FixedArray[Int],
+  ys : FixedArray[Int],
+  result : Int
+) {
+  ((result == -1) && reverse_equal_before(xs, ys, xs.length())) ||
+  (reverse_mismatch_at(xs, ys, result) && reverse_equal_before(xs, ys, result))
+}

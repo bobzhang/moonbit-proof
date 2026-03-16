@@ -1,0 +1,7 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate odd_cubes_ok(n : Int, result : Int) {
+  result == n * n * (2 * n * n - 1)
+}

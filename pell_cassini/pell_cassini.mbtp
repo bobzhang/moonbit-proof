@@ -1,0 +1,7 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate pell_cassini_ok(result : Int) {
+  (result == 1) || (result == -1)
+}

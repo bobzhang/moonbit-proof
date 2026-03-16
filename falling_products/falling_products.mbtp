@@ -1,0 +1,7 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate falling_products_ok(n : Int, result : Int) {
+  4 * result == n * (n - 1) * (n - 2) * (n - 3)
+}

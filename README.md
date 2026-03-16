@@ -131,43 +131,62 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
+On the current branch, `moon prove` verifies **56 packages** and **653 goals**.
+
 ## Examples
 
-The project contains 16 example packages at increasing difficulty:
+The workspace now contains **56 proof packages** spanning branch reasoning,
+closed-form loop invariants, quantified array properties, and multiple flavors
+of binary search.
 
-### No loops (branch-only proofs)
+### Branch-only proofs
 
-| Package | What it proves |
-|---------|---------------|
-| `abs` | `\|x\| >= 0` and equals `x` or `-x` |
-| `maxfn` | `max(a,b) >= a`, `>= b`, and equals one of them |
-| `clamp` | `lo <= clamp(x, lo, hi) <= hi` given `lo <= hi` |
+`abs`, `maxfn`, `clamp`
 
-### Simple loops
+### Search, witness extraction, and partition proofs
 
-| Package | What it proves |
-|---------|---------------|
-| `find` | Linear search: result is -1 or a valid index with matching key |
-| `count` | Count non-negatives: `0 <= result <= length` |
-| `gauss` | Sum 1..n: `result * 2 == n * (n + 1)` (Gauss formula) |
+`find`, `findlast`, `first_mismatch`, `first_reverse_mismatch`,
+`first_descent`, `first_duplicate_sorted`, `zzok`, `afail`, `invpred`,
+`lowerbound`, `upperbound`, `predecessor_search`, `bit_partition_point`,
+`isqrt`, `div`, `cubicroot`, `fourth_root`
 
-### Binary search variants
+Highlights:
 
-| Package | What it proves |
-|---------|---------------|
-| `zzok` / `afail` / `invpred` | Binary search: result is -1 or an index where `xs[result] == key` |
-| `isqrt` | Integer square root via binary search: `r*r <= n < (r+1)*(r+1)` |
-| `div` | Integer division via binary search: `q*b <= a < (q+1)*b` |
+- `predecessor_search` proves a full split: everything up to `result` is
+  `<= key`, everything after is `> key`.
+- `bit_partition_point` is a specialized lower-bound proof over monotone 0/1
+  arrays.
+- `first_descent` and `first_duplicate_sorted` return concrete witnesses rather
+  than boolean flags.
 
-### Quantified invariants
+### Closed-form sums and sequence identities
 
-| Package | What it proves |
-|---------|---------------|
-| `maxarr` | Index of max element: `∀ k, xs[k] <= xs[result]` |
-| `lowerbound` | Lower bound binary search: `∀ i < result, xs[i] < key` and `∀ i >= result, xs[i] >= key` — combines quantified invariants with sorted precondition |
-| `sumbounds` | Array sum bounded by element range: `lo*n <= sum <= hi*n` — nonlinear arithmetic with quantified precondition |
-| `checksorted` | If result == 1, all adjacent pairs in order — connects a boolean flag to a quantified property |
-| `arreq` | Two-array equality: if result == 1, `∀ k, xs[k] == ys[k]` |
+`gauss`, `sumeven`, `sumodd`, `sumproduct`, `arith_prog`, `geom_series`,
+`sum_squares`, `sum_cubes`, `odd_squares`, `sum_triples`,
+`falling_products`, `odd_cubes`, `fibonacci`, `fib_prefix_sum`,
+`fib_squared_sum`, `cassini`, `pell_cassini`, `bernoulli_ineq`
+
+Highlights:
+
+- `sum_cubes`, `odd_squares`, `sum_triples`, and `odd_cubes` all use
+  nonlinear polynomial invariants with exact postconditions.
+- `cassini` and `pell_cassini` prove alternating-sign identities over two
+  different linear recurrences.
+
+### Quantified array invariants and inequalities
+
+`count`, `arreq`, `checksorted`, `monotone`, `palindrome`, `prefix_sum_pos`,
+`sumbounds`, `markov_bound`, `abs_sum_bound`, `abs_sum_dominates_each`,
+`pairwise_sum_monotone`, `sorted_dot_lower`, `total_variation`,
+`telescoping_diff`, `maxarr`, `minarr`, `minmax_gap`, `maxprofit`
+
+Highlights:
+
+- `maxprofit` and `minmax_gap` use quantified optimality/bounding arguments.
+- `abs_sum_dominates_each` proves a computed value bounds every element's
+  absolute value.
+- `telescoping_diff` and `total_variation` show two different ways of proving
+  endpoint facts from adjacent differences.
 
 ## Known limitations
 

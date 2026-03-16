@@ -1,0 +1,27 @@
+///|
+/// Pell analogue of Cassini's identity:
+///   P(n)P(n+2) - P(n+1)² = (-1)^(n+1)
+///
+/// With `a = P(i)` and `b = P(i+1)`, the invariant is:
+///   a² + 2ab - b² == sign
+///
+/// After one Pell step `(a, b) -> (b, a + 2b)`, the expression negates.
+#requires(nonneg(n))
+#ensures(pell_cassini_ok(result))
+pub fn pell_cassini(n : Int) -> Int {
+  for i = 0, a = 0, b = 1, sign = -1; i < n; {
+    let new_a = b
+    let new_b = a + 2 * b
+    let new_sign = -sign
+    continue i + 1, new_a, new_b, new_sign
+  } nobreak {
+    a * a + 2 * a * b - b * b
+  } where {
+    invariant: 0 <= i,
+    invariant: i <= n,
+    invariant: a >= 0,
+    invariant: b >= 1,
+    invariant: sign == 1 || sign == -1,
+    invariant: a * a + 2 * a * b - b * b == sign,
+  }
+}
