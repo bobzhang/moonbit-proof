@@ -1,0 +1,12 @@
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+predicate min_in_prefix(xs : FixedArray[Int], best : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → xs[best] <= xs[k]
+}
+
+predicate is_min_index(xs : FixedArray[Int], idx : Int) {
+  ∀ k : Int, ((0 <= k) && (k < xs.length())) →
+    ((xs[idx] <= xs[k]) && (0 <= idx) && (idx < xs.length()))
+}

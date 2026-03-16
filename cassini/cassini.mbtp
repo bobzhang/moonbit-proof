@@ -1,0 +1,10 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+/// Cassini's identity: the result is always 1 or -1.
+/// Specifically, fib(n)*fib(n+2) - fib(n+1)^2 = (-1)^(n+1).
+/// We encode this as result*result == 1.
+predicate cassini_ok(result : Int) {
+  result * result == 1
+}

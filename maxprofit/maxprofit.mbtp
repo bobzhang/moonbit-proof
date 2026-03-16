@@ -1,0 +1,17 @@
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+predicate min_in_prefix(xs : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
+}
+
+predicate profit_optimal(xs : FixedArray[Int], profit : Int, len : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
+    profit >= xs[k] - xs[j]
+}
+
+predicate maxprofit_ok(xs : FixedArray[Int], result : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < xs.length())) →
+    ((result >= xs[k] - xs[j]) && (result >= 0))
+}

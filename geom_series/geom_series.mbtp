@@ -1,0 +1,8 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+/// (r - 1) * sum == pow - 1, proved as result == 0
+predicate geom_ok(result : Int) {
+  result == 0
+}
