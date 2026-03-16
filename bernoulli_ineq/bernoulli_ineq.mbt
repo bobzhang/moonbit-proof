@@ -1,3 +1,4 @@
+///|
 /// Bernoulli's Inequality: (1+x)^n >= 1+n*x for x >= 0
 ///
 /// A cornerstone inequality in analysis. Tracks pow = (1+x)^i and

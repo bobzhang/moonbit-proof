@@ -1,3 +1,4 @@
+///|
 /// Sum of first n even numbers: 2+4+6+...+2n = n*(n+1)
 ///
 /// Invariant: sum == i*(i+1).

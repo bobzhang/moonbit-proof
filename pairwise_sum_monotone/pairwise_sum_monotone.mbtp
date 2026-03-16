@@ -1,0 +1,11 @@
+predicate same_length(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  xs.length() == ys.length()
+}
+
+predicate pointwise_le(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  ∀ i : Int, ((0 <= i) && (i < xs.length())) → xs[i] <= ys[i]
+}
+
+predicate pairwise_sum_monotone_ok(result : Int) {
+  result >= 0
+}

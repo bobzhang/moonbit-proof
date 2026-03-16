@@ -1,3 +1,4 @@
+///|
 /// Total variation >= |xs[n-1] - xs[0]| (triangle inequality for sequences)
 ///
 /// Proves: Σ|xs[i+1]-xs[i]| >= xs[n-1]-xs[0] AND >= xs[0]-xs[n-1]

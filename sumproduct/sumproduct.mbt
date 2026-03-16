@@ -1,3 +1,4 @@
+///|
 /// Sum of consecutive products: Σ i*(i+1) for i=0..n-1 = n*(n-1)*(n+1)/3
 ///
 /// Proves: 3*result == n*(n-1)*(n+1)

@@ -1,3 +1,4 @@
+///|
 /// Palindrome check: if result == 1, then xs[k] == xs[n-1-k] for all k
 ///
 /// Combines boolean-∀ bridge with reverse-index array arithmetic.

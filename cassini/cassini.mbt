@@ -1,3 +1,4 @@
+///|
 /// Cassini's Identity: fib(n)*fib(n+2) - fib(n+1)² = (-1)^(n+1)
 ///
 /// One of the most beautiful identities in number theory. We track

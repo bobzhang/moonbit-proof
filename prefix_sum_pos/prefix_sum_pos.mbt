@@ -1,3 +1,4 @@
+///|
 /// Sum of positive elements dominates every element
 ///
 /// Proves: if all xs[i] > 0, then sum >= xs[k] for all k

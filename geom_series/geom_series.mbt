@@ -1,3 +1,4 @@
+///|
 /// Geometric series identity: (r-1) * Σ_{k=0}^{n-1} r^k = r^n - 1
 ///
 /// Tracks sum = Σ r^k and pow = r^i simultaneously.

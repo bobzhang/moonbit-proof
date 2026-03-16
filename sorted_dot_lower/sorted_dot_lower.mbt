@@ -1,3 +1,4 @@
+///|
 /// Sorted dot product excess: dot(xs,ys) - xs[0]*sum(ys) >= 0
 ///
 /// If xs is sorted ascending and ys is non-negative, then

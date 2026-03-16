@@ -1,3 +1,4 @@
+///|
 /// Maximum single-transaction profit (best buy-sell pair)
 ///
 /// Proves: result >= xs[k] - xs[j] for ALL j <= k (result is optimal)

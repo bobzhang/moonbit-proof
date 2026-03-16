@@ -1,3 +1,4 @@
+///|
 /// Arithmetic progression sum: Σ (a + i*d) for i=0..n-1
 ///
 /// Proves: 2*result == 2*a*n + d*n*(n-1)

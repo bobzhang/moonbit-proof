@@ -1,3 +1,4 @@
+///|
 /// Upper bound binary search (dual of lowerbound)
 ///
 /// Proves: ∀ i < result, xs[i] <= key  AND  ∀ i >= result, xs[i] > key

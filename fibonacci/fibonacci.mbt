@@ -1,3 +1,4 @@
+///|
 /// Fibonacci numbers are non-negative: fib(n) >= 0
 ///
 /// Two accumulators (a, b) = (fib(i), fib(i+1)).

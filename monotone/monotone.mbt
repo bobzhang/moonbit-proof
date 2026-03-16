@@ -1,3 +1,4 @@
+///|
 /// Strictly increasing check: if result == 1, all adjacent xs[k] < xs[k+1]
 ///
 /// Strict variant of checksorted (<  instead of <=).

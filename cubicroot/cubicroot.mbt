@@ -1,3 +1,4 @@
+///|
 /// Integer cube root via binary search: r³ <= n < (r+1)³
 ///
 /// Extends isqrt to degree-3 polynomials. The binary search invariant

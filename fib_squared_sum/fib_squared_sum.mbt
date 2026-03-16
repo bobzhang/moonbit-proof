@@ -1,3 +1,4 @@
+///|
 /// Fibonacci sum of squares: Σ F(k)² for k=0..n-1 = F(n-1)*F(n)
 ///
 /// Tracks a=F(i), b=F(i+1), sqsum=ΣF(k)² for k=0..i-1.

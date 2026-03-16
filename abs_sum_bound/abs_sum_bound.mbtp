@@ -1,0 +1,3 @@
+predicate abs_sum_bound_ok(result : Int) {
+  result >= 0
+}

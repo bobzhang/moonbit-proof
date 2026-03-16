@@ -1,3 +1,4 @@
+///|
 /// Sum of first n odd numbers: 1+3+5+...+(2n-1) = n²
 ///
 /// Invariant: sum == i*i.

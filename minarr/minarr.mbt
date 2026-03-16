@@ -1,3 +1,4 @@
+///|
 /// Index of minimum element (dual of maxarr)
 ///
 /// Proves: ∀ k, xs[result] <= xs[k] AND 0 <= result < n
