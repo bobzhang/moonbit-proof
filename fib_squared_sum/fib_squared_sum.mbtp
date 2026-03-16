@@ -1,0 +1,9 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+/// sqsum = a*b - a*a where a=F(i), b=F(i+1).
+/// At exit: sqsum - (a*b - a*a) = 0.
+predicate fib_sq_ok(result : Int) {
+  result == 0
+}

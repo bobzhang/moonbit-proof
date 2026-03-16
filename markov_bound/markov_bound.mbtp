@@ -1,0 +1,11 @@
+predicate all_nonneg(xs : FixedArray[Int]) {
+  ∀ i : Int, ((0 <= i) && (i < xs.length())) → xs[i] >= 0
+}
+
+predicate pos_t(t : Int) {
+  t >= 1
+}
+
+predicate markov_ok(result : Int) {
+  result >= 0
+}

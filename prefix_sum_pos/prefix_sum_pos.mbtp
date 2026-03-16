@@ -1,0 +1,15 @@
+predicate all_positive(xs : FixedArray[Int]) {
+  ∀ i : Int, ((0 <= i) && (i < xs.length())) → xs[i] > 0
+}
+
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+predicate sum_geq_each(xs : FixedArray[Int], sum : Int, upto : Int) {
+  ∀ k : Int, ((0 <= k) && (k < upto)) → sum >= xs[k]
+}
+
+predicate prefix_sum_pos_ok(xs : FixedArray[Int], result : Int) {
+  ∀ k : Int, ((0 <= k) && (k < xs.length())) → result >= xs[k]
+}

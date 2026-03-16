@@ -1,0 +1,11 @@
+predicate nonneg_x(x : Int) {
+  x >= 0
+}
+
+predicate nonneg_n(n : Int) {
+  n >= 0
+}
+
+predicate bernoulli_ok(result : Int) {
+  result >= 0
+}

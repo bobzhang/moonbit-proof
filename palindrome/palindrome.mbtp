@@ -1,0 +1,9 @@
+predicate pal_upto(xs : FixedArray[Int], ok : Int, upto : Int) {
+  ∀ k : Int, ((ok == 1) && (0 <= k) && (k < upto)) →
+    xs[k] == xs[xs.length() - 1 - k]
+}
+
+predicate palindrome_ok(xs : FixedArray[Int], result : Int) {
+  ∀ k : Int, ((result == 1) && (0 <= k) && (k < xs.length())) →
+    xs[k] == xs[xs.length() - 1 - k]
+}
