@@ -1,0 +1,17 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate sum_eighth_powers_ok(n : Int, result : Int) {
+  90 * result ==
+  n * (n - 1) * (2 * n - 1) *
+  (
+    5 * n * n * n * n * n * n -
+    15 * n * n * n * n * n +
+    5 * n * n * n * n +
+    15 * n * n * n -
+    n * n -
+    9 * n -
+    3
+  )
+}
