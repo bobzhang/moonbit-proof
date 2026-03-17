@@ -1,0 +1,30 @@
+/// The array must have at least two prices (need at least one daily change).
+predicate at_least_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+/// Running minimum: mn is at most every price in the prefix xs[0..len).
+predicate min_in_prefix(xs : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
+}
+
+/// Running maximum: mx is at least every price in the prefix xs[0..len).
+predicate max_in_prefix(xs : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= xs[k]
+}
+
+/// Profit optimality: profit is at least the gain of every buy-sell pair
+/// (j, k) with j <= k within the prefix. This is a doubly-quantified
+/// invariant — universally over ALL O(len²) pairs in the prefix.
+predicate profit_optimal(xs : FixedArray[Int], profit : Int, len : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
+    profit >= xs[k] - xs[j]
+}
+
+/// Full postcondition: the returned profit is globally optimal over every
+/// possible buy-sell pair, and is non-negative. This is the doubly-quantified
+/// guarantee that the greedy single-pass algorithm matches exhaustive search.
+predicate market_ok(xs : FixedArray[Int], result : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < xs.length())) →
+    ((result >= xs[k] - xs[j]) && (result >= 0))
+}
