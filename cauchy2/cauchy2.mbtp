@@ -1,0 +1,3 @@
+predicate cauchy2_ok(a : Int, b : Int, c : Int, d : Int, result : Int) {
+  result == (a * d - b * c) * (a * d - b * c)
+}

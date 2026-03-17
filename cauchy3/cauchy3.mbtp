@@ -1,0 +1,14 @@
+predicate cauchy3_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  x : Int,
+  y : Int,
+  z : Int,
+  result : Int
+) {
+  result ==
+  (a * y - b * x) * (a * y - b * x) +
+  (a * z - c * x) * (a * z - c * x) +
+  (b * z - c * y) * (b * z - c * y)
+}
