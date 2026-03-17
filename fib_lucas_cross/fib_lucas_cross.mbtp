@@ -1,0 +1,10 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+/// The result is L(n)² - 5·F(n)² = 4·(-1)^n, so result² = 16.
+/// This encodes the Pell equation x² - 5y² = ±4 whose solutions
+/// are exactly the (Lucas, Fibonacci) pairs.
+predicate fib_lucas_ok(result : Int) {
+  result * result == 16
+}
