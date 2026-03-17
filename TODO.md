@@ -194,3 +194,13 @@ proofs but used more loop state than the simpler verified examples.
 solver/Why3 limits. When a proof attempt hits this shape, the practical
 workaround is to simplify the loop state or switch to a non-iterative identity
 package instead of trying to push the same contracted loop harder.
+
+### Degree-12 Faulhaber preservation appears beyond the current automatic limit
+
+An attempted `sum_twelfth_powers` package got past an initial compiler ICE once
+the long invariant was moved into a named predicate, but it still timed out on
+the single loop-invariant-preservation VC.
+
+**Current impact:** the current stable line for exact power-sum loop proofs
+reaches `sum_eleventh_powers`; the twelfth-power step currently looks just past
+what `moon prove` + Why3 + Z3 will discharge automatically in this setup.
