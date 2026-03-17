@@ -1,0 +1,9 @@
+/// Both inputs must be strictly positive.
+predicate pos2(a : Int, b : Int) {
+  (a >= 1) && (b >= 1)
+}
+
+/// The result is a positive integer (gcd >= 1 for positive inputs).
+predicate gcd_pos(result : Int) {
+  result >= 1
+}

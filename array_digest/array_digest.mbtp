@@ -1,0 +1,32 @@
+/// At least two elements (need adjacent changes for TV).
+predicate at_least_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+/// Running minimum over the prefix.
+predicate min_in_prefix(xs : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
+}
+
+/// Running maximum over the prefix.
+predicate max_in_prefix(xs : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= xs[k]
+}
+
+/// Profit optimality: doubly quantified over all buy-sell pairs.
+predicate profit_optimal(xs : FixedArray[Int], profit : Int, len : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
+    profit >= xs[k] - xs[j]
+}
+
+/// All partial sums xs[k]-xs[0] lie in the band [lo, hi].
+predicate prefix_in_band(xs : FixedArray[Int], lo : Int, hi : Int, upto : Int) {
+  ∀ k : Int, ((0 <= k) && (k <= upto)) →
+    ((lo <= xs[k] - xs[0]) && (xs[k] - xs[0] <= hi))
+}
+
+/// Full postcondition: profit is globally optimal and non-negative.
+predicate digest_ok(xs : FixedArray[Int], result : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < xs.length())) →
+    ((result >= xs[k] - xs[j]) && (result >= 0))
+}
