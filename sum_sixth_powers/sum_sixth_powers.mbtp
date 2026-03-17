@@ -1,0 +1,9 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate sum_sixth_powers_ok(n : Int, result : Int) {
+  42 * result ==
+  n * (n - 1) * (2 * n - 1) *
+  (3 * n * n * n * n - 6 * n * n * n + 3 * n + 1)
+}
