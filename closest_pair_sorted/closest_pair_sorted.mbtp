@@ -1,0 +1,33 @@
+predicate in_bounds(xs : FixedArray[Int], i : Int) {
+  (0 <= i) && (i < xs.length())
+}
+
+predicate at_least_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+predicate sorted(xs : FixedArray[Int]) {
+  ∀ i : Int, ∀ j : Int,
+    ((in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j)) →
+      xs[i] <= xs[j]
+}
+
+predicate closest_pair_prefix(xs : FixedArray[Int], best : Int, right : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j < k) && (k <= right)) →
+    (
+      (0 <= best) &&
+      (best + 1 < xs.length()) &&
+      (best < right) &&
+      (xs[best + 1] - xs[best] <= xs[k] - xs[j])
+    )
+}
+
+predicate closest_pair_sorted_ok(xs : FixedArray[Int], idx : Int) {
+  ∀ j : Int, ∀ k : Int,
+    ((0 <= j) && (j < k) && (k < xs.length())) →
+      (
+        (0 <= idx) &&
+        (idx + 1 < xs.length()) &&
+        (xs[idx + 1] - xs[idx] <= xs[k] - xs[j])
+      )
+}

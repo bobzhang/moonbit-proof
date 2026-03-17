@@ -142,3 +142,16 @@ got down to a single loop-invariant-preservation VC but timed out in `moon prove
 **Current impact:** fixed-dimension exact identities like the 2D/3D Cauchy
 proofs and 4-point variance identity verify fine, but the fully general
 array-form induction still looks beyond the current automatic discharge limit.
+
+### Two-stage rotated-array search still resists automatic discharge
+
+An attempted proof of full search correctness in an anchor-partitioned rotated
+sorted array got much closer than earlier versions, but `moon prove` still
+stopped with one loop-invariant-preservation timeout and one unknown VC after
+the split-finding search was composed with a second segment-restricted binary
+search.
+
+**Current impact:** `rotation_pivot` is fully proved and recovers the split
+point as a global minimum witness, but strengthening that into a total
+`found-or-minusone` rotated search proof still appears to need either better
+auxiliary lemmas or stronger automation than the current pipeline provides.

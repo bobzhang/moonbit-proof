@@ -1,0 +1,33 @@
+predicate variance7_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (a - g) * (a - g) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (b - g) * (b - g) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (c - g) * (c - g) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (d - g) * (d - g) +
+  (e - f) * (e - f) +
+  (e - g) * (e - g) +
+  (f - g) * (f - g)
+}

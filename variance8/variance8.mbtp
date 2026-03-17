@@ -1,0 +1,41 @@
+predicate variance8_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (a - g) * (a - g) +
+  (a - h) * (a - h) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (b - g) * (b - g) +
+  (b - h) * (b - h) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (c - g) * (c - g) +
+  (c - h) * (c - h) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (d - g) * (d - g) +
+  (d - h) * (d - h) +
+  (e - f) * (e - f) +
+  (e - g) * (e - g) +
+  (e - h) * (e - h) +
+  (f - g) * (f - g) +
+  (f - h) * (f - h) +
+  (g - h) * (g - h)
+}
