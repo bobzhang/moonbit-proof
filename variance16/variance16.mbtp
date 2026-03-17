@@ -1,0 +1,141 @@
+predicate variance16_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  j : Int,
+  k : Int,
+  l : Int,
+  m : Int,
+  n : Int,
+  o : Int,
+  p : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (a - g) * (a - g) +
+  (a - h) * (a - h) +
+  (a - i) * (a - i) +
+  (a - j) * (a - j) +
+  (a - k) * (a - k) +
+  (a - l) * (a - l) +
+  (a - m) * (a - m) +
+  (a - n) * (a - n) +
+  (a - o) * (a - o) +
+  (a - p) * (a - p) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (b - g) * (b - g) +
+  (b - h) * (b - h) +
+  (b - i) * (b - i) +
+  (b - j) * (b - j) +
+  (b - k) * (b - k) +
+  (b - l) * (b - l) +
+  (b - m) * (b - m) +
+  (b - n) * (b - n) +
+  (b - o) * (b - o) +
+  (b - p) * (b - p) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (c - g) * (c - g) +
+  (c - h) * (c - h) +
+  (c - i) * (c - i) +
+  (c - j) * (c - j) +
+  (c - k) * (c - k) +
+  (c - l) * (c - l) +
+  (c - m) * (c - m) +
+  (c - n) * (c - n) +
+  (c - o) * (c - o) +
+  (c - p) * (c - p) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (d - g) * (d - g) +
+  (d - h) * (d - h) +
+  (d - i) * (d - i) +
+  (d - j) * (d - j) +
+  (d - k) * (d - k) +
+  (d - l) * (d - l) +
+  (d - m) * (d - m) +
+  (d - n) * (d - n) +
+  (d - o) * (d - o) +
+  (d - p) * (d - p) +
+  (e - f) * (e - f) +
+  (e - g) * (e - g) +
+  (e - h) * (e - h) +
+  (e - i) * (e - i) +
+  (e - j) * (e - j) +
+  (e - k) * (e - k) +
+  (e - l) * (e - l) +
+  (e - m) * (e - m) +
+  (e - n) * (e - n) +
+  (e - o) * (e - o) +
+  (e - p) * (e - p) +
+  (f - g) * (f - g) +
+  (f - h) * (f - h) +
+  (f - i) * (f - i) +
+  (f - j) * (f - j) +
+  (f - k) * (f - k) +
+  (f - l) * (f - l) +
+  (f - m) * (f - m) +
+  (f - n) * (f - n) +
+  (f - o) * (f - o) +
+  (f - p) * (f - p) +
+  (g - h) * (g - h) +
+  (g - i) * (g - i) +
+  (g - j) * (g - j) +
+  (g - k) * (g - k) +
+  (g - l) * (g - l) +
+  (g - m) * (g - m) +
+  (g - n) * (g - n) +
+  (g - o) * (g - o) +
+  (g - p) * (g - p) +
+  (h - i) * (h - i) +
+  (h - j) * (h - j) +
+  (h - k) * (h - k) +
+  (h - l) * (h - l) +
+  (h - m) * (h - m) +
+  (h - n) * (h - n) +
+  (h - o) * (h - o) +
+  (h - p) * (h - p) +
+  (i - j) * (i - j) +
+  (i - k) * (i - k) +
+  (i - l) * (i - l) +
+  (i - m) * (i - m) +
+  (i - n) * (i - n) +
+  (i - o) * (i - o) +
+  (i - p) * (i - p) +
+  (j - k) * (j - k) +
+  (j - l) * (j - l) +
+  (j - m) * (j - m) +
+  (j - n) * (j - n) +
+  (j - o) * (j - o) +
+  (j - p) * (j - p) +
+  (k - l) * (k - l) +
+  (k - m) * (k - m) +
+  (k - n) * (k - n) +
+  (k - o) * (k - o) +
+  (k - p) * (k - p) +
+  (l - m) * (l - m) +
+  (l - n) * (l - n) +
+  (l - o) * (l - o) +
+  (l - p) * (l - p) +
+  (m - n) * (m - n) +
+  (m - o) * (m - o) +
+  (m - p) * (m - p) +
+  (n - o) * (n - o) +
+  (n - p) * (n - p) +
+  (o - p) * (o - p)
+}
