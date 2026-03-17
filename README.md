@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **79 packages** and **874 goals**.
+On the current branch, `moon prove` verifies **82 packages** and **884 goals**.
 
 ## Examples
 
-The workspace now contains **79 proof packages** spanning branch reasoning,
+The workspace now contains **82 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -174,25 +174,27 @@ Highlights:
 
 `gauss`, `sumeven`, `sumodd`, `sumproduct`, `arith_prog`, `geom_series`,
 `sum_squares`, `sum_cubes`, `sum_fourth_powers`, `sum_fifth_powers`,
-`sum_sixth_powers`, `odd_squares`, `sum_triples`,
+`sum_sixth_powers`, `sum_seventh_powers`, `odd_squares`, `sum_triples`,
 `falling_products`, `odd_cubes`, `fibonacci`, `fib_prefix_sum`,
 `fib_squared_sum`, `cassini`, `pell_cassini`, `lucas_cassini`,
 `bernoulli_ineq`, `cauchy2`, `cauchy3`, `cauchy4`, `cauchy5`, `cauchy6`,
+`cauchy7`,
 `lagrange4sq`,
-`variance4`, `variance5`, `variance6`, `variance7`, `variance8`
+`variance4`, `variance5`, `variance6`, `variance7`, `variance8`, `variance9`
 
 Highlights:
 
 - `sum_cubes`, `sum_fourth_powers`, `sum_fifth_powers`,
-  `sum_sixth_powers`, `odd_squares`, `sum_triples`, and `odd_cubes` all use
-  nonlinear polynomial invariants with exact postconditions.
+  `sum_sixth_powers`, `sum_seventh_powers`, `odd_squares`, `sum_triples`, and
+  `odd_cubes` all use nonlinear polynomial invariants with exact
+  postconditions.
 - `cassini`, `pell_cassini`, and `lucas_cassini` prove alternating-sign
   identities over three different recurrence-derived quadratic forms.
-- `cauchy2` through `cauchy6` prove exact Cauchy-Schwarz identities in
-  dimensions 2 through 6, not just the final nonnegativity inequality.
+- `cauchy2` through `cauchy7` prove exact Cauchy-Schwarz identities in
+  dimensions 2 through 7, not just the final nonnegativity inequality.
 - `lagrange4sq` proves Lagrange's four-square identity, i.e. norm
   multiplicativity for quaternion-style multiplication.
-- `variance4` through `variance8` prove exact finite-dimensional variance
+- `variance4` through `variance9` prove exact finite-dimensional variance
   identities as sums of pairwise squares.
 
 ### Quantified array invariants and inequalities

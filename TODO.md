@@ -155,3 +155,42 @@ search.
 point as a global minimum witness, but strengthening that into a total
 `found-or-minusone` rotated search proof still appears to need either better
 auxiliary lemmas or stronger automation than the current pipeline provides.
+
+### Larger proof runs can intermittently crash the Why3 server
+
+While pushing on stronger examples like `closest_pair_sorted`, `variance8`,
+`cauchy6`, and `lucas_cassini`, some package-local `moon prove <pkg>` runs
+failed with socket errors such as:
+
+```text
+Connection error: client_connect: connection failed: No such file or directory
+(socket_name=/var/.../why3server...sock)
+```
+
+These were not ordinary timeout/unknown results from a stable Why3 session;
+the Why3 server process itself disappeared during proving. In the same session,
+rerunning the package or proving the whole workspace could still succeed.
+
+**Current impact:** high-complexity packages can be flaky even when they are
+ultimately provable. If a package suddenly fails with a `why3server...sock`
+connection error, rerunning `moon prove` may recover; this currently looks like
+backend instability rather than a clean proof-theoretic limit.
+
+### Some larger contracted loops can trigger a `moonc prove` ICE
+
+While experimenting with recurrence proofs that carried several synchronized
+state variables and paired quadratic-form invariants, `moonc prove` sometimes
+crashed before producing an ordinary VC report:
+
+```text
+Error: Invalid_argument("String.sub / Bytes.sub")
+```
+
+This showed up on attempted packages like `fib_lucas_norm` and
+`pell_lucas_norm`, which were structurally close to successful recurrence
+proofs but used more loop state than the simpler verified examples.
+
+**Current impact:** there is a compiler robustness ceiling in addition to the
+solver/Why3 limits. When a proof attempt hits this shape, the practical
+workaround is to simplify the loop state or switch to a non-iterative identity
+package instead of trying to push the same contracted loop harder.

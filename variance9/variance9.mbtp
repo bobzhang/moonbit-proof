@@ -1,0 +1,50 @@
+predicate variance9_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (a - g) * (a - g) +
+  (a - h) * (a - h) +
+  (a - i) * (a - i) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (b - g) * (b - g) +
+  (b - h) * (b - h) +
+  (b - i) * (b - i) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (c - g) * (c - g) +
+  (c - h) * (c - h) +
+  (c - i) * (c - i) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (d - g) * (d - g) +
+  (d - h) * (d - h) +
+  (d - i) * (d - i) +
+  (e - f) * (e - f) +
+  (e - g) * (e - g) +
+  (e - h) * (e - h) +
+  (e - i) * (e - i) +
+  (f - g) * (f - g) +
+  (f - h) * (f - h) +
+  (f - i) * (f - i) +
+  (g - h) * (g - h) +
+  (g - i) * (g - i) +
+  (h - i) * (h - i)
+}

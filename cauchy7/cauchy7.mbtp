@@ -1,0 +1,40 @@
+predicate cauchy7_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  p : Int,
+  q : Int,
+  r : Int,
+  s : Int,
+  t : Int,
+  u : Int,
+  v : Int,
+  result : Int
+) {
+  result ==
+  (a * q - b * p) * (a * q - b * p) +
+  (a * r - c * p) * (a * r - c * p) +
+  (a * s - d * p) * (a * s - d * p) +
+  (a * t - e * p) * (a * t - e * p) +
+  (a * u - f * p) * (a * u - f * p) +
+  (a * v - g * p) * (a * v - g * p) +
+  (b * r - c * q) * (b * r - c * q) +
+  (b * s - d * q) * (b * s - d * q) +
+  (b * t - e * q) * (b * t - e * q) +
+  (b * u - f * q) * (b * u - f * q) +
+  (b * v - g * q) * (b * v - g * q) +
+  (c * s - d * r) * (c * s - d * r) +
+  (c * t - e * r) * (c * t - e * r) +
+  (c * u - f * r) * (c * u - f * r) +
+  (c * v - g * r) * (c * v - g * r) +
+  (d * t - e * s) * (d * t - e * s) +
+  (d * u - f * s) * (d * u - f * s) +
+  (d * v - g * s) * (d * v - g * s) +
+  (e * u - f * t) * (e * u - f * t) +
+  (e * v - g * t) * (e * v - g * t) +
+  (f * v - g * u) * (f * v - g * u)
+}
