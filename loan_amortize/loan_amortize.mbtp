@@ -1,0 +1,13 @@
+/// Valid loan parameters: non-negative balance, rate, and payment count;
+/// the periodic payment must cover the interest on the initial balance
+/// (pmt * 10000 >= init_bal * rate ensures every period reduces principal).
+predicate valid_loan(init_bal : Int, rate : Int, pmt : Int, n : Int) {
+  (init_bal >= 0) && (rate >= 0) && (pmt >= 0) && (n >= 0) &&
+  (pmt * 10000 >= init_bal * rate)
+}
+
+/// The total amount paid equals exactly the number of periods times
+/// the periodic payment. This is the most basic financial identity.
+predicate amort_ok(n : Int, pmt : Int, result : Int) {
+  result == n * pmt
+}

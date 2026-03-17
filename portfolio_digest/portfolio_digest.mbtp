@@ -1,0 +1,49 @@
+/// Both arrays must have the same length.
+predicate same_length(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  xs.length() == ys.length()
+}
+
+/// At least two price points needed.
+predicate at_least_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+/// Running minimum of asset X over prefix.
+predicate min_prefix_x(xs : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
+}
+
+/// Running maximum of asset X over prefix.
+predicate max_prefix_x(xs : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= xs[k]
+}
+
+/// Profit optimality for asset X: doubly quantified over all buy-sell pairs.
+predicate profit_optimal_x(xs : FixedArray[Int], profit : Int, len : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
+    profit >= xs[k] - xs[j]
+}
+
+/// Running minimum of asset Y over prefix.
+predicate min_prefix_y(ys : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= ys[k]
+}
+
+/// Running maximum of asset Y over prefix.
+predicate max_prefix_y(ys : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= ys[k]
+}
+
+/// Profit optimality for asset Y: doubly quantified over all buy-sell pairs.
+predicate profit_optimal_y(ys : FixedArray[Int], profit : Int, len : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
+    profit >= ys[k] - ys[j]
+}
+
+/// Full postcondition: the result is the best single-asset trade across
+/// the entire portfolio. For ALL buy-sell pairs in BOTH assets, the
+/// result is at least the potential profit.
+predicate portfolio_ok(xs : FixedArray[Int], ys : FixedArray[Int], result : Int) {
+  ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < xs.length())) →
+    ((result >= xs[k] - xs[j]) && (result >= ys[k] - ys[j]) && (result >= 0))
+}
