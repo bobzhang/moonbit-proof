@@ -1,0 +1,34 @@
+predicate in_bounds(xs : FixedArray[Int], i : Int) {
+  (0 <= i) && (i < xs.length())
+}
+
+predicate sorted(xs : FixedArray[Int]) {
+  ∀ i : Int, ∀ j : Int,
+    ((in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j)) →
+      xs[i] <= xs[j]
+}
+
+predicate all_leq_before(xs : FixedArray[Int], key : Int, idx : Int) {
+  ∀ i : Int, ((0 <= i) && (i < idx)) → xs[i] <= key
+}
+
+predicate all_gt_from(xs : FixedArray[Int], key : Int, idx : Int) {
+  ∀ i : Int, ((idx <= i) && (i < xs.length())) → xs[i] > key
+}
+
+predicate found(xs : FixedArray[Int], key : Int, idx : Int) {
+  (0 <= idx) && (idx < xs.length()) && (xs[idx] == key)
+}
+
+predicate no_key_after(xs : FixedArray[Int], key : Int, idx : Int) {
+  ∀ i : Int, ((idx < i) && (i < xs.length())) → xs[i] != key
+}
+
+predicate missing(xs : FixedArray[Int], key : Int) {
+  ∀ i : Int, ((0 <= i) && (i < xs.length())) → xs[i] != key
+}
+
+predicate last_key_sorted_ok(xs : FixedArray[Int], key : Int, result : Int) {
+  (((result == -1) && (missing(xs, key)))) ||
+  (((result != -1) && (found(xs, key, result))) && (no_key_after(xs, key, result)))
+}

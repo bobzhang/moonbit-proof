@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **64 packages** and **765 goals**.
+On the current branch, `moon prove` verifies **72 packages** and **898 goals**.
 
 ## Examples
 
-The workspace now contains **64 proof packages** spanning branch reasoning,
+The workspace now contains **72 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -148,8 +148,8 @@ of binary search.
 `find`, `findlast`, `first_mismatch`, `first_reverse_mismatch`,
 `first_descent`, `first_duplicate_sorted`, `zzok`, `afail`, `invpred`,
 `lowerbound`, `upperbound`, `predecessor_search`, `bit_partition_point`,
-`rotation_pivot`, `mountain_peak`, `closest_zero_sorted`,
-`closest_key_sorted`,
+`rotation_pivot`, `rotated_search`, `mountain_peak`, `closest_zero_sorted`,
+`closest_key_sorted`, `closest_key_total`, `last_key_sorted`,
 `isqrt`, `div`, `cubicroot`, `fourth_root`
 
 Highlights:
@@ -160,8 +160,11 @@ Highlights:
   arrays.
 - `rotation_pivot` and `mountain_peak` use binary search to recover structural
   boundaries in nontrivial array shapes.
-- `closest_zero_sorted` and `closest_key_sorted` prove global nearest-neighbor
-  witness properties from a single binary-search split.
+- `rotated_search` proves first-occurrence semantics in an anchor-partitioned
+  rotated array, not just hit-or-miss search.
+- `closest_zero_sorted`, `closest_key_sorted`, and `closest_key_total` prove
+  global nearest-neighbor witness properties from a single binary-search split.
+- `last_key_sorted` proves a last-occurrence witness via upper-bound search.
 - `first_descent` and `first_duplicate_sorted` return concrete witnesses rather
   than boolean flags.
 
@@ -171,7 +174,8 @@ Highlights:
 `sum_squares`, `sum_cubes`, `odd_squares`, `sum_triples`,
 `falling_products`, `odd_cubes`, `fibonacci`, `fib_prefix_sum`,
 `fib_squared_sum`, `cassini`, `pell_cassini`, `bernoulli_ineq`,
-`cauchy2`, `cauchy3`, `variance4`
+`cauchy2`, `cauchy3`, `cauchy4`, `cauchy5`, `lagrange4sq`,
+`variance4`, `variance5`, `variance6`
 
 Highlights:
 
@@ -179,10 +183,12 @@ Highlights:
   nonlinear polynomial invariants with exact postconditions.
 - `cassini` and `pell_cassini` prove alternating-sign identities over two
   different linear recurrences.
-- `cauchy2` and `cauchy3` prove exact Cauchy-Schwarz identities in dimensions
-  2 and 3, not just the final nonnegativity inequality.
-- `variance4` proves the exact four-point variance identity as a sum of six
-  pairwise squares.
+- `cauchy2` through `cauchy5` prove exact Cauchy-Schwarz identities in
+  dimensions 2 through 5, not just the final nonnegativity inequality.
+- `lagrange4sq` proves Lagrange's four-square identity, i.e. norm
+  multiplicativity for quaternion-style multiplication.
+- `variance4`, `variance5`, and `variance6` prove exact finite-dimensional
+  variance identities as sums of pairwise squares.
 
 ### Quantified array invariants and inequalities
 

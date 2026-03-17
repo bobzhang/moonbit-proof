@@ -1,0 +1,13 @@
+predicate lagrange4sq_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  result : Int
+) {
+  result == (a * a + b * b + c * c + d * d) * (e * e + f * f + g * g + h * h)
+}

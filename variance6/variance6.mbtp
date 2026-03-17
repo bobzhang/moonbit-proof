@@ -1,0 +1,26 @@
+predicate variance6_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (e - f) * (e - f)
+}
