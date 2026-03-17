@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **108 packages** and **938 goals**.
+On the current branch, `moon prove` verifies **112 packages** and **942 goals**.
 
 ## Examples
 
-The workspace now contains **108 proof packages** spanning branch reasoning,
+The workspace now contains **112 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -182,11 +182,12 @@ Highlights:
 `bernoulli_ineq`, `cauchy2`, `cauchy3`, `cauchy4`, `cauchy5`, `cauchy6`,
 `cauchy7`, `cauchy8`, `cauchy9`, `cauchy10`, `cauchy11`, `cauchy12`,
 `cauchy13`, `cauchy14`, `cauchy15`, `cauchy16`, `cauchy17`, `cauchy18`,
+`cauchy19`, `cauchy20`,
 `lagrange4sq`,
 `variance4`, `variance5`, `variance6`, `variance7`, `variance8`, `variance9`,
 `variance10`, `variance11`, `variance12`, `variance13`, `variance14`,
 `variance15`, `variance16`, `variance17`, `variance18`, `variance19`,
-`variance20`
+`variance20`, `variance21`, `variance22`
 
 Highlights:
 
@@ -197,11 +198,11 @@ Highlights:
   invariants with exact postconditions.
 - `cassini`, `pell_cassini`, and `lucas_cassini` prove alternating-sign
   identities over three different recurrence-derived quadratic forms.
-- `cauchy2` through `cauchy18` prove exact Cauchy-Schwarz identities in
-  dimensions 2 through 18, not just the final nonnegativity inequality.
+- `cauchy2` through `cauchy20` prove exact Cauchy-Schwarz identities in
+  dimensions 2 through 20, not just the final nonnegativity inequality.
 - `lagrange4sq` proves Lagrange's four-square identity, i.e. norm
   multiplicativity for quaternion-style multiplication.
-- `variance4` through `variance20` prove exact finite-dimensional variance
+- `variance4` through `variance22` prove exact finite-dimensional variance
   identities as sums of pairwise squares.
 
 ### Quantified array invariants and inequalities
