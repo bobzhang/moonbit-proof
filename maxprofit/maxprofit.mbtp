@@ -1,16 +1,25 @@
+/// The array must have at least one element (need at least one price).
 predicate nonempty(xs : FixedArray[Int]) {
   xs.length() > 0
 }
 
+/// The running minimum: mn is at most every element in the prefix xs[0..len).
+/// This tracks the best buy price seen so far.
 predicate min_in_prefix(xs : FixedArray[Int], mn : Int, len : Int) {
   ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
 }
 
+/// Prefix optimality: profit is at least the gain of every buy-sell pair
+/// (j, k) with j <= k within the prefix xs[0..len). This is a doubly-
+/// quantified invariant — universally over ALL O(n²) pairs.
 predicate profit_optimal(xs : FixedArray[Int], profit : Int, len : Int) {
   ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < len)) →
     profit >= xs[k] - xs[j]
 }
 
+/// The full postcondition: for ALL buy-sell pairs in the entire array,
+/// the result is at least the profit and is non-negative. This proves
+/// global optimality of the greedy algorithm.
 predicate maxprofit_ok(xs : FixedArray[Int], result : Int) {
   ∀ j : Int, ∀ k : Int, ((0 <= j) && (j <= k) && (k < xs.length())) →
     ((result >= xs[k] - xs[j]) && (result >= 0))

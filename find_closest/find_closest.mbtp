@@ -1,0 +1,20 @@
+/// The array must have at least one element.
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+/// For all elements in the prefix xs[0..len), the squared distance at `best`
+/// is at most the squared distance at any other index. Squared distance
+/// (a-b)² preserves the absolute-distance ordering without case splits.
+predicate closest_in_prefix(xs : FixedArray[Int], target : Int, best : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) →
+    (xs[best] - target) * (xs[best] - target) <= (xs[k] - target) * (xs[k] - target)
+}
+
+/// The full postcondition: result is a valid index, and for ALL elements
+/// in the array, the squared distance at result is minimal.
+predicate find_closest_ok(xs : FixedArray[Int], target : Int, result : Int) {
+  ∀ k : Int, ((0 <= k) && (k < xs.length())) →
+    ((xs[result] - target) * (xs[result] - target) <= (xs[k] - target) * (xs[k] - target)) &&
+    (0 <= result) && (result < xs.length())
+}

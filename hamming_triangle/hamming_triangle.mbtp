@@ -1,0 +1,11 @@
+/// All three arrays must have the same length so that element-wise
+/// comparison at every position is well-defined.
+predicate same_length(a : FixedArray[Int], b : FixedArray[Int], c : FixedArray[Int]) {
+  (a.length() == b.length()) && (b.length() == c.length())
+}
+
+/// The result is non-negative, encoding d(a,b) + d(b,c) - d(a,c) >= 0.
+/// This is the triangle inequality: d(a,c) <= d(a,b) + d(b,c).
+predicate nonneg(result : Int) {
+  result >= 0
+}
