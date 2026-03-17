@@ -1,0 +1,96 @@
+predicate variance13_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  j : Int,
+  k : Int,
+  l : Int,
+  m : Int,
+  result : Int
+) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (a - e) * (a - e) +
+  (a - f) * (a - f) +
+  (a - g) * (a - g) +
+  (a - h) * (a - h) +
+  (a - i) * (a - i) +
+  (a - j) * (a - j) +
+  (a - k) * (a - k) +
+  (a - l) * (a - l) +
+  (a - m) * (a - m) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (b - e) * (b - e) +
+  (b - f) * (b - f) +
+  (b - g) * (b - g) +
+  (b - h) * (b - h) +
+  (b - i) * (b - i) +
+  (b - j) * (b - j) +
+  (b - k) * (b - k) +
+  (b - l) * (b - l) +
+  (b - m) * (b - m) +
+  (c - d) * (c - d) +
+  (c - e) * (c - e) +
+  (c - f) * (c - f) +
+  (c - g) * (c - g) +
+  (c - h) * (c - h) +
+  (c - i) * (c - i) +
+  (c - j) * (c - j) +
+  (c - k) * (c - k) +
+  (c - l) * (c - l) +
+  (c - m) * (c - m) +
+  (d - e) * (d - e) +
+  (d - f) * (d - f) +
+  (d - g) * (d - g) +
+  (d - h) * (d - h) +
+  (d - i) * (d - i) +
+  (d - j) * (d - j) +
+  (d - k) * (d - k) +
+  (d - l) * (d - l) +
+  (d - m) * (d - m) +
+  (e - f) * (e - f) +
+  (e - g) * (e - g) +
+  (e - h) * (e - h) +
+  (e - i) * (e - i) +
+  (e - j) * (e - j) +
+  (e - k) * (e - k) +
+  (e - l) * (e - l) +
+  (e - m) * (e - m) +
+  (f - g) * (f - g) +
+  (f - h) * (f - h) +
+  (f - i) * (f - i) +
+  (f - j) * (f - j) +
+  (f - k) * (f - k) +
+  (f - l) * (f - l) +
+  (f - m) * (f - m) +
+  (g - h) * (g - h) +
+  (g - i) * (g - i) +
+  (g - j) * (g - j) +
+  (g - k) * (g - k) +
+  (g - l) * (g - l) +
+  (g - m) * (g - m) +
+  (h - i) * (h - i) +
+  (h - j) * (h - j) +
+  (h - k) * (h - k) +
+  (h - l) * (h - l) +
+  (h - m) * (h - m) +
+  (i - j) * (i - j) +
+  (i - k) * (i - k) +
+  (i - l) * (i - l) +
+  (i - m) * (i - m) +
+  (j - k) * (j - k) +
+  (j - l) * (j - l) +
+  (j - m) * (j - m) +
+  (k - l) * (k - l) +
+  (k - m) * (k - m) +
+  (l - m) * (l - m)
+}

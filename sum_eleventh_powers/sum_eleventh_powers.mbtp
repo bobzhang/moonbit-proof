@@ -1,0 +1,19 @@
+predicate nonneg(n : Int) {
+  n >= 0
+}
+
+predicate sum_eleventh_powers_ok(n : Int, result : Int) {
+  24 * result ==
+  n * n * (n - 1) * (n - 1) *
+  (
+    2 * n * n * n * n * n * n * n * n -
+    8 * n * n * n * n * n * n * n +
+    4 * n * n * n * n * n * n +
+    16 * n * n * n * n * n -
+    5 * n * n * n * n -
+    26 * n * n * n -
+    3 * n * n +
+    20 * n +
+    10
+  )
+}
