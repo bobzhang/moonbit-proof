@@ -1,0 +1,304 @@
+predicate cauchy23_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  j : Int,
+  k : Int,
+  l : Int,
+  m : Int,
+  n : Int,
+  o : Int,
+  p : Int,
+  q : Int,
+  r : Int,
+  s : Int,
+  t : Int,
+  u : Int,
+  v : Int,
+  w : Int,
+  x : Int,
+  y : Int,
+  z : Int,
+  aa : Int,
+  ab : Int,
+  ac : Int,
+  ad : Int,
+  ae : Int,
+  af : Int,
+  ag : Int,
+  ah : Int,
+  ai : Int,
+  aj : Int,
+  ak : Int,
+  al : Int,
+  am : Int,
+  an : Int,
+  ao : Int,
+  ap : Int,
+  aq : Int,
+  ar : Int,
+  ba : Int,
+  bb : Int,
+  result : Int
+) {
+  result ==
+  (a * y - b * x) * (a * y - b * x) +
+  (a * z - c * x) * (a * z - c * x) +
+  (a * aa - d * x) * (a * aa - d * x) +
+  (a * ab - e * x) * (a * ab - e * x) +
+  (a * ac - f * x) * (a * ac - f * x) +
+  (a * ad - g * x) * (a * ad - g * x) +
+  (a * ae - h * x) * (a * ae - h * x) +
+  (a * af - i * x) * (a * af - i * x) +
+  (a * ag - j * x) * (a * ag - j * x) +
+  (a * ah - k * x) * (a * ah - k * x) +
+  (a * ai - l * x) * (a * ai - l * x) +
+  (a * aj - m * x) * (a * aj - m * x) +
+  (a * ak - n * x) * (a * ak - n * x) +
+  (a * al - o * x) * (a * al - o * x) +
+  (a * am - p * x) * (a * am - p * x) +
+  (a * an - q * x) * (a * an - q * x) +
+  (a * ao - r * x) * (a * ao - r * x) +
+  (a * ap - s * x) * (a * ap - s * x) +
+  (a * aq - t * x) * (a * aq - t * x) +
+  (a * ar - u * x) * (a * ar - u * x) +
+  (a * ba - v * x) * (a * ba - v * x) +
+  (a * bb - w * x) * (a * bb - w * x) +
+  (b * z - c * y) * (b * z - c * y) +
+  (b * aa - d * y) * (b * aa - d * y) +
+  (b * ab - e * y) * (b * ab - e * y) +
+  (b * ac - f * y) * (b * ac - f * y) +
+  (b * ad - g * y) * (b * ad - g * y) +
+  (b * ae - h * y) * (b * ae - h * y) +
+  (b * af - i * y) * (b * af - i * y) +
+  (b * ag - j * y) * (b * ag - j * y) +
+  (b * ah - k * y) * (b * ah - k * y) +
+  (b * ai - l * y) * (b * ai - l * y) +
+  (b * aj - m * y) * (b * aj - m * y) +
+  (b * ak - n * y) * (b * ak - n * y) +
+  (b * al - o * y) * (b * al - o * y) +
+  (b * am - p * y) * (b * am - p * y) +
+  (b * an - q * y) * (b * an - q * y) +
+  (b * ao - r * y) * (b * ao - r * y) +
+  (b * ap - s * y) * (b * ap - s * y) +
+  (b * aq - t * y) * (b * aq - t * y) +
+  (b * ar - u * y) * (b * ar - u * y) +
+  (b * ba - v * y) * (b * ba - v * y) +
+  (b * bb - w * y) * (b * bb - w * y) +
+  (c * aa - d * z) * (c * aa - d * z) +
+  (c * ab - e * z) * (c * ab - e * z) +
+  (c * ac - f * z) * (c * ac - f * z) +
+  (c * ad - g * z) * (c * ad - g * z) +
+  (c * ae - h * z) * (c * ae - h * z) +
+  (c * af - i * z) * (c * af - i * z) +
+  (c * ag - j * z) * (c * ag - j * z) +
+  (c * ah - k * z) * (c * ah - k * z) +
+  (c * ai - l * z) * (c * ai - l * z) +
+  (c * aj - m * z) * (c * aj - m * z) +
+  (c * ak - n * z) * (c * ak - n * z) +
+  (c * al - o * z) * (c * al - o * z) +
+  (c * am - p * z) * (c * am - p * z) +
+  (c * an - q * z) * (c * an - q * z) +
+  (c * ao - r * z) * (c * ao - r * z) +
+  (c * ap - s * z) * (c * ap - s * z) +
+  (c * aq - t * z) * (c * aq - t * z) +
+  (c * ar - u * z) * (c * ar - u * z) +
+  (c * ba - v * z) * (c * ba - v * z) +
+  (c * bb - w * z) * (c * bb - w * z) +
+  (d * ab - e * aa) * (d * ab - e * aa) +
+  (d * ac - f * aa) * (d * ac - f * aa) +
+  (d * ad - g * aa) * (d * ad - g * aa) +
+  (d * ae - h * aa) * (d * ae - h * aa) +
+  (d * af - i * aa) * (d * af - i * aa) +
+  (d * ag - j * aa) * (d * ag - j * aa) +
+  (d * ah - k * aa) * (d * ah - k * aa) +
+  (d * ai - l * aa) * (d * ai - l * aa) +
+  (d * aj - m * aa) * (d * aj - m * aa) +
+  (d * ak - n * aa) * (d * ak - n * aa) +
+  (d * al - o * aa) * (d * al - o * aa) +
+  (d * am - p * aa) * (d * am - p * aa) +
+  (d * an - q * aa) * (d * an - q * aa) +
+  (d * ao - r * aa) * (d * ao - r * aa) +
+  (d * ap - s * aa) * (d * ap - s * aa) +
+  (d * aq - t * aa) * (d * aq - t * aa) +
+  (d * ar - u * aa) * (d * ar - u * aa) +
+  (d * ba - v * aa) * (d * ba - v * aa) +
+  (d * bb - w * aa) * (d * bb - w * aa) +
+  (e * ac - f * ab) * (e * ac - f * ab) +
+  (e * ad - g * ab) * (e * ad - g * ab) +
+  (e * ae - h * ab) * (e * ae - h * ab) +
+  (e * af - i * ab) * (e * af - i * ab) +
+  (e * ag - j * ab) * (e * ag - j * ab) +
+  (e * ah - k * ab) * (e * ah - k * ab) +
+  (e * ai - l * ab) * (e * ai - l * ab) +
+  (e * aj - m * ab) * (e * aj - m * ab) +
+  (e * ak - n * ab) * (e * ak - n * ab) +
+  (e * al - o * ab) * (e * al - o * ab) +
+  (e * am - p * ab) * (e * am - p * ab) +
+  (e * an - q * ab) * (e * an - q * ab) +
+  (e * ao - r * ab) * (e * ao - r * ab) +
+  (e * ap - s * ab) * (e * ap - s * ab) +
+  (e * aq - t * ab) * (e * aq - t * ab) +
+  (e * ar - u * ab) * (e * ar - u * ab) +
+  (e * ba - v * ab) * (e * ba - v * ab) +
+  (e * bb - w * ab) * (e * bb - w * ab) +
+  (f * ad - g * ac) * (f * ad - g * ac) +
+  (f * ae - h * ac) * (f * ae - h * ac) +
+  (f * af - i * ac) * (f * af - i * ac) +
+  (f * ag - j * ac) * (f * ag - j * ac) +
+  (f * ah - k * ac) * (f * ah - k * ac) +
+  (f * ai - l * ac) * (f * ai - l * ac) +
+  (f * aj - m * ac) * (f * aj - m * ac) +
+  (f * ak - n * ac) * (f * ak - n * ac) +
+  (f * al - o * ac) * (f * al - o * ac) +
+  (f * am - p * ac) * (f * am - p * ac) +
+  (f * an - q * ac) * (f * an - q * ac) +
+  (f * ao - r * ac) * (f * ao - r * ac) +
+  (f * ap - s * ac) * (f * ap - s * ac) +
+  (f * aq - t * ac) * (f * aq - t * ac) +
+  (f * ar - u * ac) * (f * ar - u * ac) +
+  (f * ba - v * ac) * (f * ba - v * ac) +
+  (f * bb - w * ac) * (f * bb - w * ac) +
+  (g * ae - h * ad) * (g * ae - h * ad) +
+  (g * af - i * ad) * (g * af - i * ad) +
+  (g * ag - j * ad) * (g * ag - j * ad) +
+  (g * ah - k * ad) * (g * ah - k * ad) +
+  (g * ai - l * ad) * (g * ai - l * ad) +
+  (g * aj - m * ad) * (g * aj - m * ad) +
+  (g * ak - n * ad) * (g * ak - n * ad) +
+  (g * al - o * ad) * (g * al - o * ad) +
+  (g * am - p * ad) * (g * am - p * ad) +
+  (g * an - q * ad) * (g * an - q * ad) +
+  (g * ao - r * ad) * (g * ao - r * ad) +
+  (g * ap - s * ad) * (g * ap - s * ad) +
+  (g * aq - t * ad) * (g * aq - t * ad) +
+  (g * ar - u * ad) * (g * ar - u * ad) +
+  (g * ba - v * ad) * (g * ba - v * ad) +
+  (g * bb - w * ad) * (g * bb - w * ad) +
+  (h * af - i * ae) * (h * af - i * ae) +
+  (h * ag - j * ae) * (h * ag - j * ae) +
+  (h * ah - k * ae) * (h * ah - k * ae) +
+  (h * ai - l * ae) * (h * ai - l * ae) +
+  (h * aj - m * ae) * (h * aj - m * ae) +
+  (h * ak - n * ae) * (h * ak - n * ae) +
+  (h * al - o * ae) * (h * al - o * ae) +
+  (h * am - p * ae) * (h * am - p * ae) +
+  (h * an - q * ae) * (h * an - q * ae) +
+  (h * ao - r * ae) * (h * ao - r * ae) +
+  (h * ap - s * ae) * (h * ap - s * ae) +
+  (h * aq - t * ae) * (h * aq - t * ae) +
+  (h * ar - u * ae) * (h * ar - u * ae) +
+  (h * ba - v * ae) * (h * ba - v * ae) +
+  (h * bb - w * ae) * (h * bb - w * ae) +
+  (i * ag - j * af) * (i * ag - j * af) +
+  (i * ah - k * af) * (i * ah - k * af) +
+  (i * ai - l * af) * (i * ai - l * af) +
+  (i * aj - m * af) * (i * aj - m * af) +
+  (i * ak - n * af) * (i * ak - n * af) +
+  (i * al - o * af) * (i * al - o * af) +
+  (i * am - p * af) * (i * am - p * af) +
+  (i * an - q * af) * (i * an - q * af) +
+  (i * ao - r * af) * (i * ao - r * af) +
+  (i * ap - s * af) * (i * ap - s * af) +
+  (i * aq - t * af) * (i * aq - t * af) +
+  (i * ar - u * af) * (i * ar - u * af) +
+  (i * ba - v * af) * (i * ba - v * af) +
+  (i * bb - w * af) * (i * bb - w * af) +
+  (j * ah - k * ag) * (j * ah - k * ag) +
+  (j * ai - l * ag) * (j * ai - l * ag) +
+  (j * aj - m * ag) * (j * aj - m * ag) +
+  (j * ak - n * ag) * (j * ak - n * ag) +
+  (j * al - o * ag) * (j * al - o * ag) +
+  (j * am - p * ag) * (j * am - p * ag) +
+  (j * an - q * ag) * (j * an - q * ag) +
+  (j * ao - r * ag) * (j * ao - r * ag) +
+  (j * ap - s * ag) * (j * ap - s * ag) +
+  (j * aq - t * ag) * (j * aq - t * ag) +
+  (j * ar - u * ag) * (j * ar - u * ag) +
+  (j * ba - v * ag) * (j * ba - v * ag) +
+  (j * bb - w * ag) * (j * bb - w * ag) +
+  (k * ai - l * ah) * (k * ai - l * ah) +
+  (k * aj - m * ah) * (k * aj - m * ah) +
+  (k * ak - n * ah) * (k * ak - n * ah) +
+  (k * al - o * ah) * (k * al - o * ah) +
+  (k * am - p * ah) * (k * am - p * ah) +
+  (k * an - q * ah) * (k * an - q * ah) +
+  (k * ao - r * ah) * (k * ao - r * ah) +
+  (k * ap - s * ah) * (k * ap - s * ah) +
+  (k * aq - t * ah) * (k * aq - t * ah) +
+  (k * ar - u * ah) * (k * ar - u * ah) +
+  (k * ba - v * ah) * (k * ba - v * ah) +
+  (k * bb - w * ah) * (k * bb - w * ah) +
+  (l * aj - m * ai) * (l * aj - m * ai) +
+  (l * ak - n * ai) * (l * ak - n * ai) +
+  (l * al - o * ai) * (l * al - o * ai) +
+  (l * am - p * ai) * (l * am - p * ai) +
+  (l * an - q * ai) * (l * an - q * ai) +
+  (l * ao - r * ai) * (l * ao - r * ai) +
+  (l * ap - s * ai) * (l * ap - s * ai) +
+  (l * aq - t * ai) * (l * aq - t * ai) +
+  (l * ar - u * ai) * (l * ar - u * ai) +
+  (l * ba - v * ai) * (l * ba - v * ai) +
+  (l * bb - w * ai) * (l * bb - w * ai) +
+  (m * ak - n * aj) * (m * ak - n * aj) +
+  (m * al - o * aj) * (m * al - o * aj) +
+  (m * am - p * aj) * (m * am - p * aj) +
+  (m * an - q * aj) * (m * an - q * aj) +
+  (m * ao - r * aj) * (m * ao - r * aj) +
+  (m * ap - s * aj) * (m * ap - s * aj) +
+  (m * aq - t * aj) * (m * aq - t * aj) +
+  (m * ar - u * aj) * (m * ar - u * aj) +
+  (m * ba - v * aj) * (m * ba - v * aj) +
+  (m * bb - w * aj) * (m * bb - w * aj) +
+  (n * al - o * ak) * (n * al - o * ak) +
+  (n * am - p * ak) * (n * am - p * ak) +
+  (n * an - q * ak) * (n * an - q * ak) +
+  (n * ao - r * ak) * (n * ao - r * ak) +
+  (n * ap - s * ak) * (n * ap - s * ak) +
+  (n * aq - t * ak) * (n * aq - t * ak) +
+  (n * ar - u * ak) * (n * ar - u * ak) +
+  (n * ba - v * ak) * (n * ba - v * ak) +
+  (n * bb - w * ak) * (n * bb - w * ak) +
+  (o * am - p * al) * (o * am - p * al) +
+  (o * an - q * al) * (o * an - q * al) +
+  (o * ao - r * al) * (o * ao - r * al) +
+  (o * ap - s * al) * (o * ap - s * al) +
+  (o * aq - t * al) * (o * aq - t * al) +
+  (o * ar - u * al) * (o * ar - u * al) +
+  (o * ba - v * al) * (o * ba - v * al) +
+  (o * bb - w * al) * (o * bb - w * al) +
+  (p * an - q * am) * (p * an - q * am) +
+  (p * ao - r * am) * (p * ao - r * am) +
+  (p * ap - s * am) * (p * ap - s * am) +
+  (p * aq - t * am) * (p * aq - t * am) +
+  (p * ar - u * am) * (p * ar - u * am) +
+  (p * ba - v * am) * (p * ba - v * am) +
+  (p * bb - w * am) * (p * bb - w * am) +
+  (q * ao - r * an) * (q * ao - r * an) +
+  (q * ap - s * an) * (q * ap - s * an) +
+  (q * aq - t * an) * (q * aq - t * an) +
+  (q * ar - u * an) * (q * ar - u * an) +
+  (q * ba - v * an) * (q * ba - v * an) +
+  (q * bb - w * an) * (q * bb - w * an) +
+  (r * ap - s * ao) * (r * ap - s * ao) +
+  (r * aq - t * ao) * (r * aq - t * ao) +
+  (r * ar - u * ao) * (r * ar - u * ao) +
+  (r * ba - v * ao) * (r * ba - v * ao) +
+  (r * bb - w * ao) * (r * bb - w * ao) +
+  (s * aq - t * ap) * (s * aq - t * ap) +
+  (s * ar - u * ap) * (s * ar - u * ap) +
+  (s * ba - v * ap) * (s * ba - v * ap) +
+  (s * bb - w * ap) * (s * bb - w * ap) +
+  (t * ar - u * aq) * (t * ar - u * aq) +
+  (t * ba - v * aq) * (t * ba - v * aq) +
+  (t * bb - w * aq) * (t * bb - w * aq) +
+  (u * ba - v * ar) * (u * ba - v * ar) +
+  (u * bb - w * ar) * (u * bb - w * ar) +
+  (v * bb - w * ba) * (v * bb - w * ba)
+}

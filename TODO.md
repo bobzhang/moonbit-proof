@@ -195,6 +195,17 @@ solver/Why3 limits. When a proof attempt hits this shape, the practical
 workaround is to simplify the loop state or switch to a non-iterative identity
 package instead of trying to push the same contracted loop harder.
 
+### Auto-generated larger proofs must avoid reserved identifiers
+
+When the fixed-dimension identity families were pushed past dimension 22, a
+naive variable-name sequence ran into MoonBit keywords like `as`, which broke
+parsing before `moon prove` even started. Renaming those generated parameters
+to neutral identifiers like `ba`, `bb`, `bc`, and `bd` fixed the issue.
+
+**Current impact:** large mechanically generated proof families still scale,
+but any future generator or manual extension needs a keyword-safe naming
+scheme once it gets past the `ar` range.
+
 ### Degree-12 Faulhaber preservation appears beyond the current automatic limit
 
 An attempted `sum_twelfth_powers` package got past an initial compiler ICE once
