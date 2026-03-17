@@ -1,0 +1,9 @@
+predicate variance4_ok(a : Int, b : Int, c : Int, d : Int, result : Int) {
+  result ==
+  (a - b) * (a - b) +
+  (a - c) * (a - c) +
+  (a - d) * (a - d) +
+  (b - c) * (b - c) +
+  (b - d) * (b - d) +
+  (c - d) * (c - d)
+}

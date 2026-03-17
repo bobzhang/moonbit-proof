@@ -122,3 +122,23 @@ in contracted function bodies
 **Current impact:** returning proof-relevant structured values (for example a
 pair `[lb, ub]`) appears to be much harder than returning a single `Int`,
 even when the proof obligations themselves are otherwise close to discharging.
+
+### Prefix variance / array-form Cauchy induction currently times out
+
+An attempted proof of the array inequality
+
+```text
+n * Σ x_i^2 >= (Σ x_i)^2
+```
+
+using the natural prefix invariant
+
+```text
+i * sqsum >= sum^2
+```
+
+got down to a single loop-invariant-preservation VC but timed out in `moon prove`.
+
+**Current impact:** fixed-dimension exact identities like the 2D/3D Cauchy
+proofs and 4-point variance identity verify fine, but the fully general
+array-form induction still looks beyond the current automatic discharge limit.

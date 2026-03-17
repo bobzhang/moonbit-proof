@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **62 packages** and **742 goals**.
+On the current branch, `moon prove` verifies **64 packages** and **765 goals**.
 
 ## Examples
 
-The workspace now contains **62 proof packages** spanning branch reasoning,
+The workspace now contains **64 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -149,6 +149,7 @@ of binary search.
 `first_descent`, `first_duplicate_sorted`, `zzok`, `afail`, `invpred`,
 `lowerbound`, `upperbound`, `predecessor_search`, `bit_partition_point`,
 `rotation_pivot`, `mountain_peak`, `closest_zero_sorted`,
+`closest_key_sorted`,
 `isqrt`, `div`, `cubicroot`, `fourth_root`
 
 Highlights:
@@ -159,8 +160,10 @@ Highlights:
   arrays.
 - `rotation_pivot` and `mountain_peak` use binary search to recover structural
   boundaries in nontrivial array shapes.
-- `closest_zero_sorted`, `first_descent`, and `first_duplicate_sorted` return
-  concrete witnesses rather than boolean flags.
+- `closest_zero_sorted` and `closest_key_sorted` prove global nearest-neighbor
+  witness properties from a single binary-search split.
+- `first_descent` and `first_duplicate_sorted` return concrete witnesses rather
+  than boolean flags.
 
 ### Closed-form sums and sequence identities
 
@@ -168,7 +171,7 @@ Highlights:
 `sum_squares`, `sum_cubes`, `odd_squares`, `sum_triples`,
 `falling_products`, `odd_cubes`, `fibonacci`, `fib_prefix_sum`,
 `fib_squared_sum`, `cassini`, `pell_cassini`, `bernoulli_ineq`,
-`cauchy2`, `cauchy3`
+`cauchy2`, `cauchy3`, `variance4`
 
 Highlights:
 
@@ -178,6 +181,8 @@ Highlights:
   different linear recurrences.
 - `cauchy2` and `cauchy3` prove exact Cauchy-Schwarz identities in dimensions
   2 and 3, not just the final nonnegativity inequality.
+- `variance4` proves the exact four-point variance identity as a sum of six
+  pairwise squares.
 
 ### Quantified array invariants and inequalities
 
