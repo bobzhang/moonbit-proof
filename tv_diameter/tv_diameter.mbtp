@@ -1,0 +1,14 @@
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+predicate prefix_in_band(xs : FixedArray[Int], lo : Int, hi : Int, upto : Int) {
+  ∀ k : Int, ((0 <= k) && (k <= upto)) →
+    ((lo <= xs[k] - xs[0]) && (xs[k] - xs[0] <= hi))
+}
+
+predicate tv_diameter_ok(xs : FixedArray[Int], result : Int) {
+  ∀ i : Int, ∀ j : Int,
+    ((0 <= i) && (i < xs.length()) && (0 <= j) && (j < xs.length())) →
+      ((xs[i] - xs[j] <= result) && (result >= 0))
+}

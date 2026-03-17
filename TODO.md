@@ -101,3 +101,24 @@ Parsing error: UnexpectedToken(LBRACE ...)
 
 **Workaround:** For packages with no special settings, create an empty
 `moon.pkg` file instead of a JSON object.
+
+### Contracted functions currently reject structured-result construction
+
+While attempting an `equal_range` proof that returned both binary-search
+boundaries, `moon prove` rejected direct array construction inside a
+contracted function body:
+
+```text
+unsupported expression in contracted function body
+```
+
+It also rejected calling a plain helper constructor from the contracted body:
+
+```text
+only local contracted functions and primitive operators can be called
+in contracted function bodies
+```
+
+**Current impact:** returning proof-relevant structured values (for example a
+pair `[lb, ub]`) appears to be much harder than returning a single `Int`,
+even when the proof obligations themselves are otherwise close to discharging.

@@ -1,0 +1,40 @@
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+predicate ge_anchor_before(xs : FixedArray[Int], idx : Int) {
+  ∀ i : Int, ((0 <= i) && (i < idx)) → xs[i] >= xs[0]
+}
+
+predicate lt_anchor_from(xs : FixedArray[Int], idx : Int) {
+  ∀ i : Int, ((idx <= i) && (i < xs.length())) → xs[i] < xs[0]
+}
+
+predicate anchor_partition(xs : FixedArray[Int]) {
+  ∀ i : Int, ∀ j : Int,
+    ((0 <= i) && (i <= j) && (j < xs.length()) && (xs[i] < xs[0])) →
+      xs[j] < xs[0]
+}
+
+predicate anchor_segment_sorted(xs : FixedArray[Int]) {
+  ∀ i : Int, ∀ j : Int,
+    ((0 <= i) && (i <= j) && (j < xs.length()) &&
+      (
+        ((xs[i] >= xs[0]) && (xs[j] >= xs[0])) ||
+        ((xs[i] < xs[0]) && (xs[j] < xs[0]))
+      )) →
+        xs[i] <= xs[j]
+}
+
+predicate is_min_index(xs : FixedArray[Int], idx : Int) {
+  ∀ k : Int, ((0 <= k) && (k < xs.length())) →
+    ((xs[idx] <= xs[k]) && (0 <= idx) && (idx < xs.length()))
+}
+
+predicate rotation_pivot_ok(xs : FixedArray[Int], result : Int) {
+  (is_min_index(xs, result)) &&
+  (
+    (result == 0) ||
+    ((1 <= result) && ge_anchor_before(xs, result) && lt_anchor_from(xs, result))
+  )
+}
