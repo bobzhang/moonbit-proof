@@ -1,0 +1,157 @@
+predicate cauchy16_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  j : Int,
+  k : Int,
+  l : Int,
+  m : Int,
+  n : Int,
+  o : Int,
+  p : Int,
+  q : Int,
+  r : Int,
+  s : Int,
+  t : Int,
+  u : Int,
+  v : Int,
+  w : Int,
+  x : Int,
+  y : Int,
+  z : Int,
+  aa : Int,
+  ab : Int,
+  ac : Int,
+  ad : Int,
+  ae : Int,
+  af : Int,
+  result : Int
+) {
+  result ==
+  (a * r - b * q) * (a * r - b * q) +
+  (a * s - c * q) * (a * s - c * q) +
+  (a * t - d * q) * (a * t - d * q) +
+  (a * u - e * q) * (a * u - e * q) +
+  (a * v - f * q) * (a * v - f * q) +
+  (a * w - g * q) * (a * w - g * q) +
+  (a * x - h * q) * (a * x - h * q) +
+  (a * y - i * q) * (a * y - i * q) +
+  (a * z - j * q) * (a * z - j * q) +
+  (a * aa - k * q) * (a * aa - k * q) +
+  (a * ab - l * q) * (a * ab - l * q) +
+  (a * ac - m * q) * (a * ac - m * q) +
+  (a * ad - n * q) * (a * ad - n * q) +
+  (a * ae - o * q) * (a * ae - o * q) +
+  (a * af - p * q) * (a * af - p * q) +
+  (b * s - c * r) * (b * s - c * r) +
+  (b * t - d * r) * (b * t - d * r) +
+  (b * u - e * r) * (b * u - e * r) +
+  (b * v - f * r) * (b * v - f * r) +
+  (b * w - g * r) * (b * w - g * r) +
+  (b * x - h * r) * (b * x - h * r) +
+  (b * y - i * r) * (b * y - i * r) +
+  (b * z - j * r) * (b * z - j * r) +
+  (b * aa - k * r) * (b * aa - k * r) +
+  (b * ab - l * r) * (b * ab - l * r) +
+  (b * ac - m * r) * (b * ac - m * r) +
+  (b * ad - n * r) * (b * ad - n * r) +
+  (b * ae - o * r) * (b * ae - o * r) +
+  (b * af - p * r) * (b * af - p * r) +
+  (c * t - d * s) * (c * t - d * s) +
+  (c * u - e * s) * (c * u - e * s) +
+  (c * v - f * s) * (c * v - f * s) +
+  (c * w - g * s) * (c * w - g * s) +
+  (c * x - h * s) * (c * x - h * s) +
+  (c * y - i * s) * (c * y - i * s) +
+  (c * z - j * s) * (c * z - j * s) +
+  (c * aa - k * s) * (c * aa - k * s) +
+  (c * ab - l * s) * (c * ab - l * s) +
+  (c * ac - m * s) * (c * ac - m * s) +
+  (c * ad - n * s) * (c * ad - n * s) +
+  (c * ae - o * s) * (c * ae - o * s) +
+  (c * af - p * s) * (c * af - p * s) +
+  (d * u - e * t) * (d * u - e * t) +
+  (d * v - f * t) * (d * v - f * t) +
+  (d * w - g * t) * (d * w - g * t) +
+  (d * x - h * t) * (d * x - h * t) +
+  (d * y - i * t) * (d * y - i * t) +
+  (d * z - j * t) * (d * z - j * t) +
+  (d * aa - k * t) * (d * aa - k * t) +
+  (d * ab - l * t) * (d * ab - l * t) +
+  (d * ac - m * t) * (d * ac - m * t) +
+  (d * ad - n * t) * (d * ad - n * t) +
+  (d * ae - o * t) * (d * ae - o * t) +
+  (d * af - p * t) * (d * af - p * t) +
+  (e * v - f * u) * (e * v - f * u) +
+  (e * w - g * u) * (e * w - g * u) +
+  (e * x - h * u) * (e * x - h * u) +
+  (e * y - i * u) * (e * y - i * u) +
+  (e * z - j * u) * (e * z - j * u) +
+  (e * aa - k * u) * (e * aa - k * u) +
+  (e * ab - l * u) * (e * ab - l * u) +
+  (e * ac - m * u) * (e * ac - m * u) +
+  (e * ad - n * u) * (e * ad - n * u) +
+  (e * ae - o * u) * (e * ae - o * u) +
+  (e * af - p * u) * (e * af - p * u) +
+  (f * w - g * v) * (f * w - g * v) +
+  (f * x - h * v) * (f * x - h * v) +
+  (f * y - i * v) * (f * y - i * v) +
+  (f * z - j * v) * (f * z - j * v) +
+  (f * aa - k * v) * (f * aa - k * v) +
+  (f * ab - l * v) * (f * ab - l * v) +
+  (f * ac - m * v) * (f * ac - m * v) +
+  (f * ad - n * v) * (f * ad - n * v) +
+  (f * ae - o * v) * (f * ae - o * v) +
+  (f * af - p * v) * (f * af - p * v) +
+  (g * x - h * w) * (g * x - h * w) +
+  (g * y - i * w) * (g * y - i * w) +
+  (g * z - j * w) * (g * z - j * w) +
+  (g * aa - k * w) * (g * aa - k * w) +
+  (g * ab - l * w) * (g * ab - l * w) +
+  (g * ac - m * w) * (g * ac - m * w) +
+  (g * ad - n * w) * (g * ad - n * w) +
+  (g * ae - o * w) * (g * ae - o * w) +
+  (g * af - p * w) * (g * af - p * w) +
+  (h * y - i * x) * (h * y - i * x) +
+  (h * z - j * x) * (h * z - j * x) +
+  (h * aa - k * x) * (h * aa - k * x) +
+  (h * ab - l * x) * (h * ab - l * x) +
+  (h * ac - m * x) * (h * ac - m * x) +
+  (h * ad - n * x) * (h * ad - n * x) +
+  (h * ae - o * x) * (h * ae - o * x) +
+  (h * af - p * x) * (h * af - p * x) +
+  (i * z - j * y) * (i * z - j * y) +
+  (i * aa - k * y) * (i * aa - k * y) +
+  (i * ab - l * y) * (i * ab - l * y) +
+  (i * ac - m * y) * (i * ac - m * y) +
+  (i * ad - n * y) * (i * ad - n * y) +
+  (i * ae - o * y) * (i * ae - o * y) +
+  (i * af - p * y) * (i * af - p * y) +
+  (j * aa - k * z) * (j * aa - k * z) +
+  (j * ab - l * z) * (j * ab - l * z) +
+  (j * ac - m * z) * (j * ac - m * z) +
+  (j * ad - n * z) * (j * ad - n * z) +
+  (j * ae - o * z) * (j * ae - o * z) +
+  (j * af - p * z) * (j * af - p * z) +
+  (k * ab - l * aa) * (k * ab - l * aa) +
+  (k * ac - m * aa) * (k * ac - m * aa) +
+  (k * ad - n * aa) * (k * ad - n * aa) +
+  (k * ae - o * aa) * (k * ae - o * aa) +
+  (k * af - p * aa) * (k * af - p * aa) +
+  (l * ac - m * ab) * (l * ac - m * ab) +
+  (l * ad - n * ab) * (l * ad - n * ab) +
+  (l * ae - o * ab) * (l * ae - o * ab) +
+  (l * af - p * ab) * (l * af - p * ab) +
+  (m * ad - n * ac) * (m * ad - n * ac) +
+  (m * ae - o * ac) * (m * ae - o * ac) +
+  (m * af - p * ac) * (m * af - p * ac) +
+  (n * ae - o * ad) * (n * ae - o * ad) +
+  (n * af - p * ad) * (n * af - p * ad) +
+  (o * af - p * ae) * (o * af - p * ae)
+}
