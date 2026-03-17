@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **120 packages** and **950 goals**.
+On the current branch, `moon prove` verifies **124 packages** and **954 goals**.
 
 ## Examples
 
-The workspace now contains **120 proof packages** spanning branch reasoning,
+The workspace now contains **124 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -183,12 +183,12 @@ Highlights:
 `cauchy7`, `cauchy8`, `cauchy9`, `cauchy10`, `cauchy11`, `cauchy12`,
 `cauchy13`, `cauchy14`, `cauchy15`, `cauchy16`, `cauchy17`, `cauchy18`,
 `cauchy19`, `cauchy20`, `cauchy21`, `cauchy22`, `cauchy23`, `cauchy24`,
-`lagrange4sq`,
+`cauchy25`, `cauchy26`, `lagrange4sq`,
 `variance4`, `variance5`, `variance6`, `variance7`, `variance8`, `variance9`,
 `variance10`, `variance11`, `variance12`, `variance13`, `variance14`,
 `variance15`, `variance16`, `variance17`, `variance18`, `variance19`,
 `variance20`, `variance21`, `variance22`, `variance23`, `variance24`,
-`variance25`, `variance26`
+`variance25`, `variance26`, `variance27`, `variance28`
 
 Highlights:
 
@@ -199,11 +199,11 @@ Highlights:
   invariants with exact postconditions.
 - `cassini`, `pell_cassini`, and `lucas_cassini` prove alternating-sign
   identities over three different recurrence-derived quadratic forms.
-- `cauchy2` through `cauchy24` prove exact Cauchy-Schwarz identities in
-  dimensions 2 through 24, not just the final nonnegativity inequality.
+- `cauchy2` through `cauchy26` prove exact Cauchy-Schwarz identities in
+  dimensions 2 through 26, not just the final nonnegativity inequality.
 - `lagrange4sq` proves Lagrange's four-square identity, i.e. norm
   multiplicativity for quaternion-style multiplication.
-- `variance4` through `variance26` prove exact finite-dimensional variance
+- `variance4` through `variance28` prove exact finite-dimensional variance
   identities as sums of pairwise squares.
 
 ### Quantified array invariants and inequalities
