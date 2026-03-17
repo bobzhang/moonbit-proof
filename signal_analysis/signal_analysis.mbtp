@@ -1,0 +1,27 @@
+/// The signal must have at least two samples (need at least one change).
+predicate at_least_two(xs : FixedArray[Int]) {
+  xs.length() >= 2
+}
+
+/// All partial sums xs[k] - xs[0] lie within the band [lo, hi].
+/// This is the universally quantified invariant that enables the
+/// all-pairs postcondition via band-width reasoning.
+predicate prefix_in_band(xs : FixedArray[Int], lo : Int, hi : Int, upto : Int) {
+  ∀ k : Int, ((0 <= k) && (k <= upto)) →
+    ((lo <= xs[k] - xs[0]) && (xs[k] - xs[0] <= hi))
+}
+
+/// If sorted flag is 1, all adjacent pairs in the prefix are non-decreasing.
+predicate adj_sorted_when_ok(xs : FixedArray[Int], ok : Int, upto : Int) {
+  ∀ k : Int, ((ok == 1) && (0 <= k) && (k + 1 < upto)) →
+    xs[k] <= xs[k + 1]
+}
+
+/// Doubly-quantified postcondition: the total variation bounds EVERY
+/// pairwise difference in the array, and is non-negative.
+/// This is equivalent to: TV >= max over all (i,j) of |xs[i] - xs[j]|.
+predicate signal_ok(xs : FixedArray[Int], result : Int) {
+  ∀ i : Int, ∀ j : Int,
+    ((0 <= i) && (i < xs.length()) && (0 <= j) && (j < xs.length())) →
+      ((xs[i] - xs[j] <= result) && (result >= 0))
+}

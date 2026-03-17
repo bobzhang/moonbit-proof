@@ -1,0 +1,41 @@
+/// Both arrays must have the same length.
+predicate same_length(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  xs.length() == ys.length()
+}
+
+/// xs[i] <= ys[i] for all valid indices. This is the pointwise
+/// dominance precondition that enables cross-array invariants.
+predicate pointwise_le(xs : FixedArray[Int], ys : FixedArray[Int]) {
+  ∀ i : Int, ((0 <= i) && (i < xs.length())) → xs[i] <= ys[i]
+}
+
+/// At least one element in each array.
+predicate nonempty(xs : FixedArray[Int]) {
+  xs.length() > 0
+}
+
+/// Running minimum of xs over the prefix.
+predicate min_prefix_x(xs : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= xs[k]
+}
+
+/// Running maximum of xs over the prefix.
+predicate max_prefix_x(xs : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= xs[k]
+}
+
+/// Running minimum of ys over the prefix.
+predicate min_prefix_y(ys : FixedArray[Int], mn : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mn <= ys[k]
+}
+
+/// Running maximum of ys over the prefix.
+predicate max_prefix_y(ys : FixedArray[Int], mx : Int, len : Int) {
+  ∀ k : Int, ((0 <= k) && (k < len)) → mx >= ys[k]
+}
+
+/// The gap sum_y - sum_x is non-negative, encoding that pointwise
+/// dominance lifts to sums: Σ xs[i] <= Σ ys[i].
+predicate paired_ok(result : Int) {
+  result >= 0
+}
