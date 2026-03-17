@@ -1,0 +1,634 @@
+predicate cauchy34_ok(
+  a : Int,
+  b : Int,
+  c : Int,
+  d : Int,
+  e : Int,
+  f : Int,
+  g : Int,
+  h : Int,
+  i : Int,
+  j : Int,
+  k : Int,
+  l : Int,
+  m : Int,
+  n : Int,
+  o : Int,
+  p : Int,
+  q : Int,
+  r : Int,
+  s : Int,
+  t : Int,
+  u : Int,
+  v : Int,
+  w : Int,
+  x : Int,
+  y : Int,
+  z : Int,
+  aa : Int,
+  ab : Int,
+  ac : Int,
+  ad : Int,
+  ae : Int,
+  af : Int,
+  ag : Int,
+  ah : Int,
+  ai : Int,
+  aj : Int,
+  ak : Int,
+  al : Int,
+  am : Int,
+  an : Int,
+  ao : Int,
+  ap : Int,
+  aq : Int,
+  ar : Int,
+  ba : Int,
+  bb : Int,
+  bc : Int,
+  bd : Int,
+  be : Int,
+  bf : Int,
+  bg : Int,
+  bh : Int,
+  bi : Int,
+  bj : Int,
+  bk : Int,
+  bl : Int,
+  bm : Int,
+  bn : Int,
+  bo : Int,
+  bp : Int,
+  bq : Int,
+  br : Int,
+  ca : Int,
+  cb : Int,
+  cc : Int,
+  cd : Int,
+  ce : Int,
+  cf : Int,
+  result : Int
+) {
+  result ==
+    (a * aj - b * ai) * (a * aj - b * ai) +
+    (a * ak - c * ai) * (a * ak - c * ai) +
+    (a * al - d * ai) * (a * al - d * ai) +
+    (a * am - e * ai) * (a * am - e * ai) +
+    (a * an - f * ai) * (a * an - f * ai) +
+    (a * ao - g * ai) * (a * ao - g * ai) +
+    (a * ap - h * ai) * (a * ap - h * ai) +
+    (a * aq - i * ai) * (a * aq - i * ai) +
+    (a * ar - j * ai) * (a * ar - j * ai) +
+    (a * ba - k * ai) * (a * ba - k * ai) +
+    (a * bb - l * ai) * (a * bb - l * ai) +
+    (a * bc - m * ai) * (a * bc - m * ai) +
+    (a * bd - n * ai) * (a * bd - n * ai) +
+    (a * be - o * ai) * (a * be - o * ai) +
+    (a * bf - p * ai) * (a * bf - p * ai) +
+    (a * bg - q * ai) * (a * bg - q * ai) +
+    (a * bh - r * ai) * (a * bh - r * ai) +
+    (a * bi - s * ai) * (a * bi - s * ai) +
+    (a * bj - t * ai) * (a * bj - t * ai) +
+    (a * bk - u * ai) * (a * bk - u * ai) +
+    (a * bl - v * ai) * (a * bl - v * ai) +
+    (a * bm - w * ai) * (a * bm - w * ai) +
+    (a * bn - x * ai) * (a * bn - x * ai) +
+    (a * bo - y * ai) * (a * bo - y * ai) +
+    (a * bp - z * ai) * (a * bp - z * ai) +
+    (a * bq - aa * ai) * (a * bq - aa * ai) +
+    (a * br - ab * ai) * (a * br - ab * ai) +
+    (a * ca - ac * ai) * (a * ca - ac * ai) +
+    (a * cb - ad * ai) * (a * cb - ad * ai) +
+    (a * cc - ae * ai) * (a * cc - ae * ai) +
+    (a * cd - af * ai) * (a * cd - af * ai) +
+    (a * ce - ag * ai) * (a * ce - ag * ai) +
+    (a * cf - ah * ai) * (a * cf - ah * ai) +
+    (b * ak - c * aj) * (b * ak - c * aj) +
+    (b * al - d * aj) * (b * al - d * aj) +
+    (b * am - e * aj) * (b * am - e * aj) +
+    (b * an - f * aj) * (b * an - f * aj) +
+    (b * ao - g * aj) * (b * ao - g * aj) +
+    (b * ap - h * aj) * (b * ap - h * aj) +
+    (b * aq - i * aj) * (b * aq - i * aj) +
+    (b * ar - j * aj) * (b * ar - j * aj) +
+    (b * ba - k * aj) * (b * ba - k * aj) +
+    (b * bb - l * aj) * (b * bb - l * aj) +
+    (b * bc - m * aj) * (b * bc - m * aj) +
+    (b * bd - n * aj) * (b * bd - n * aj) +
+    (b * be - o * aj) * (b * be - o * aj) +
+    (b * bf - p * aj) * (b * bf - p * aj) +
+    (b * bg - q * aj) * (b * bg - q * aj) +
+    (b * bh - r * aj) * (b * bh - r * aj) +
+    (b * bi - s * aj) * (b * bi - s * aj) +
+    (b * bj - t * aj) * (b * bj - t * aj) +
+    (b * bk - u * aj) * (b * bk - u * aj) +
+    (b * bl - v * aj) * (b * bl - v * aj) +
+    (b * bm - w * aj) * (b * bm - w * aj) +
+    (b * bn - x * aj) * (b * bn - x * aj) +
+    (b * bo - y * aj) * (b * bo - y * aj) +
+    (b * bp - z * aj) * (b * bp - z * aj) +
+    (b * bq - aa * aj) * (b * bq - aa * aj) +
+    (b * br - ab * aj) * (b * br - ab * aj) +
+    (b * ca - ac * aj) * (b * ca - ac * aj) +
+    (b * cb - ad * aj) * (b * cb - ad * aj) +
+    (b * cc - ae * aj) * (b * cc - ae * aj) +
+    (b * cd - af * aj) * (b * cd - af * aj) +
+    (b * ce - ag * aj) * (b * ce - ag * aj) +
+    (b * cf - ah * aj) * (b * cf - ah * aj) +
+    (c * al - d * ak) * (c * al - d * ak) +
+    (c * am - e * ak) * (c * am - e * ak) +
+    (c * an - f * ak) * (c * an - f * ak) +
+    (c * ao - g * ak) * (c * ao - g * ak) +
+    (c * ap - h * ak) * (c * ap - h * ak) +
+    (c * aq - i * ak) * (c * aq - i * ak) +
+    (c * ar - j * ak) * (c * ar - j * ak) +
+    (c * ba - k * ak) * (c * ba - k * ak) +
+    (c * bb - l * ak) * (c * bb - l * ak) +
+    (c * bc - m * ak) * (c * bc - m * ak) +
+    (c * bd - n * ak) * (c * bd - n * ak) +
+    (c * be - o * ak) * (c * be - o * ak) +
+    (c * bf - p * ak) * (c * bf - p * ak) +
+    (c * bg - q * ak) * (c * bg - q * ak) +
+    (c * bh - r * ak) * (c * bh - r * ak) +
+    (c * bi - s * ak) * (c * bi - s * ak) +
+    (c * bj - t * ak) * (c * bj - t * ak) +
+    (c * bk - u * ak) * (c * bk - u * ak) +
+    (c * bl - v * ak) * (c * bl - v * ak) +
+    (c * bm - w * ak) * (c * bm - w * ak) +
+    (c * bn - x * ak) * (c * bn - x * ak) +
+    (c * bo - y * ak) * (c * bo - y * ak) +
+    (c * bp - z * ak) * (c * bp - z * ak) +
+    (c * bq - aa * ak) * (c * bq - aa * ak) +
+    (c * br - ab * ak) * (c * br - ab * ak) +
+    (c * ca - ac * ak) * (c * ca - ac * ak) +
+    (c * cb - ad * ak) * (c * cb - ad * ak) +
+    (c * cc - ae * ak) * (c * cc - ae * ak) +
+    (c * cd - af * ak) * (c * cd - af * ak) +
+    (c * ce - ag * ak) * (c * ce - ag * ak) +
+    (c * cf - ah * ak) * (c * cf - ah * ak) +
+    (d * am - e * al) * (d * am - e * al) +
+    (d * an - f * al) * (d * an - f * al) +
+    (d * ao - g * al) * (d * ao - g * al) +
+    (d * ap - h * al) * (d * ap - h * al) +
+    (d * aq - i * al) * (d * aq - i * al) +
+    (d * ar - j * al) * (d * ar - j * al) +
+    (d * ba - k * al) * (d * ba - k * al) +
+    (d * bb - l * al) * (d * bb - l * al) +
+    (d * bc - m * al) * (d * bc - m * al) +
+    (d * bd - n * al) * (d * bd - n * al) +
+    (d * be - o * al) * (d * be - o * al) +
+    (d * bf - p * al) * (d * bf - p * al) +
+    (d * bg - q * al) * (d * bg - q * al) +
+    (d * bh - r * al) * (d * bh - r * al) +
+    (d * bi - s * al) * (d * bi - s * al) +
+    (d * bj - t * al) * (d * bj - t * al) +
+    (d * bk - u * al) * (d * bk - u * al) +
+    (d * bl - v * al) * (d * bl - v * al) +
+    (d * bm - w * al) * (d * bm - w * al) +
+    (d * bn - x * al) * (d * bn - x * al) +
+    (d * bo - y * al) * (d * bo - y * al) +
+    (d * bp - z * al) * (d * bp - z * al) +
+    (d * bq - aa * al) * (d * bq - aa * al) +
+    (d * br - ab * al) * (d * br - ab * al) +
+    (d * ca - ac * al) * (d * ca - ac * al) +
+    (d * cb - ad * al) * (d * cb - ad * al) +
+    (d * cc - ae * al) * (d * cc - ae * al) +
+    (d * cd - af * al) * (d * cd - af * al) +
+    (d * ce - ag * al) * (d * ce - ag * al) +
+    (d * cf - ah * al) * (d * cf - ah * al) +
+    (e * an - f * am) * (e * an - f * am) +
+    (e * ao - g * am) * (e * ao - g * am) +
+    (e * ap - h * am) * (e * ap - h * am) +
+    (e * aq - i * am) * (e * aq - i * am) +
+    (e * ar - j * am) * (e * ar - j * am) +
+    (e * ba - k * am) * (e * ba - k * am) +
+    (e * bb - l * am) * (e * bb - l * am) +
+    (e * bc - m * am) * (e * bc - m * am) +
+    (e * bd - n * am) * (e * bd - n * am) +
+    (e * be - o * am) * (e * be - o * am) +
+    (e * bf - p * am) * (e * bf - p * am) +
+    (e * bg - q * am) * (e * bg - q * am) +
+    (e * bh - r * am) * (e * bh - r * am) +
+    (e * bi - s * am) * (e * bi - s * am) +
+    (e * bj - t * am) * (e * bj - t * am) +
+    (e * bk - u * am) * (e * bk - u * am) +
+    (e * bl - v * am) * (e * bl - v * am) +
+    (e * bm - w * am) * (e * bm - w * am) +
+    (e * bn - x * am) * (e * bn - x * am) +
+    (e * bo - y * am) * (e * bo - y * am) +
+    (e * bp - z * am) * (e * bp - z * am) +
+    (e * bq - aa * am) * (e * bq - aa * am) +
+    (e * br - ab * am) * (e * br - ab * am) +
+    (e * ca - ac * am) * (e * ca - ac * am) +
+    (e * cb - ad * am) * (e * cb - ad * am) +
+    (e * cc - ae * am) * (e * cc - ae * am) +
+    (e * cd - af * am) * (e * cd - af * am) +
+    (e * ce - ag * am) * (e * ce - ag * am) +
+    (e * cf - ah * am) * (e * cf - ah * am) +
+    (f * ao - g * an) * (f * ao - g * an) +
+    (f * ap - h * an) * (f * ap - h * an) +
+    (f * aq - i * an) * (f * aq - i * an) +
+    (f * ar - j * an) * (f * ar - j * an) +
+    (f * ba - k * an) * (f * ba - k * an) +
+    (f * bb - l * an) * (f * bb - l * an) +
+    (f * bc - m * an) * (f * bc - m * an) +
+    (f * bd - n * an) * (f * bd - n * an) +
+    (f * be - o * an) * (f * be - o * an) +
+    (f * bf - p * an) * (f * bf - p * an) +
+    (f * bg - q * an) * (f * bg - q * an) +
+    (f * bh - r * an) * (f * bh - r * an) +
+    (f * bi - s * an) * (f * bi - s * an) +
+    (f * bj - t * an) * (f * bj - t * an) +
+    (f * bk - u * an) * (f * bk - u * an) +
+    (f * bl - v * an) * (f * bl - v * an) +
+    (f * bm - w * an) * (f * bm - w * an) +
+    (f * bn - x * an) * (f * bn - x * an) +
+    (f * bo - y * an) * (f * bo - y * an) +
+    (f * bp - z * an) * (f * bp - z * an) +
+    (f * bq - aa * an) * (f * bq - aa * an) +
+    (f * br - ab * an) * (f * br - ab * an) +
+    (f * ca - ac * an) * (f * ca - ac * an) +
+    (f * cb - ad * an) * (f * cb - ad * an) +
+    (f * cc - ae * an) * (f * cc - ae * an) +
+    (f * cd - af * an) * (f * cd - af * an) +
+    (f * ce - ag * an) * (f * ce - ag * an) +
+    (f * cf - ah * an) * (f * cf - ah * an) +
+    (g * ap - h * ao) * (g * ap - h * ao) +
+    (g * aq - i * ao) * (g * aq - i * ao) +
+    (g * ar - j * ao) * (g * ar - j * ao) +
+    (g * ba - k * ao) * (g * ba - k * ao) +
+    (g * bb - l * ao) * (g * bb - l * ao) +
+    (g * bc - m * ao) * (g * bc - m * ao) +
+    (g * bd - n * ao) * (g * bd - n * ao) +
+    (g * be - o * ao) * (g * be - o * ao) +
+    (g * bf - p * ao) * (g * bf - p * ao) +
+    (g * bg - q * ao) * (g * bg - q * ao) +
+    (g * bh - r * ao) * (g * bh - r * ao) +
+    (g * bi - s * ao) * (g * bi - s * ao) +
+    (g * bj - t * ao) * (g * bj - t * ao) +
+    (g * bk - u * ao) * (g * bk - u * ao) +
+    (g * bl - v * ao) * (g * bl - v * ao) +
+    (g * bm - w * ao) * (g * bm - w * ao) +
+    (g * bn - x * ao) * (g * bn - x * ao) +
+    (g * bo - y * ao) * (g * bo - y * ao) +
+    (g * bp - z * ao) * (g * bp - z * ao) +
+    (g * bq - aa * ao) * (g * bq - aa * ao) +
+    (g * br - ab * ao) * (g * br - ab * ao) +
+    (g * ca - ac * ao) * (g * ca - ac * ao) +
+    (g * cb - ad * ao) * (g * cb - ad * ao) +
+    (g * cc - ae * ao) * (g * cc - ae * ao) +
+    (g * cd - af * ao) * (g * cd - af * ao) +
+    (g * ce - ag * ao) * (g * ce - ag * ao) +
+    (g * cf - ah * ao) * (g * cf - ah * ao) +
+    (h * aq - i * ap) * (h * aq - i * ap) +
+    (h * ar - j * ap) * (h * ar - j * ap) +
+    (h * ba - k * ap) * (h * ba - k * ap) +
+    (h * bb - l * ap) * (h * bb - l * ap) +
+    (h * bc - m * ap) * (h * bc - m * ap) +
+    (h * bd - n * ap) * (h * bd - n * ap) +
+    (h * be - o * ap) * (h * be - o * ap) +
+    (h * bf - p * ap) * (h * bf - p * ap) +
+    (h * bg - q * ap) * (h * bg - q * ap) +
+    (h * bh - r * ap) * (h * bh - r * ap) +
+    (h * bi - s * ap) * (h * bi - s * ap) +
+    (h * bj - t * ap) * (h * bj - t * ap) +
+    (h * bk - u * ap) * (h * bk - u * ap) +
+    (h * bl - v * ap) * (h * bl - v * ap) +
+    (h * bm - w * ap) * (h * bm - w * ap) +
+    (h * bn - x * ap) * (h * bn - x * ap) +
+    (h * bo - y * ap) * (h * bo - y * ap) +
+    (h * bp - z * ap) * (h * bp - z * ap) +
+    (h * bq - aa * ap) * (h * bq - aa * ap) +
+    (h * br - ab * ap) * (h * br - ab * ap) +
+    (h * ca - ac * ap) * (h * ca - ac * ap) +
+    (h * cb - ad * ap) * (h * cb - ad * ap) +
+    (h * cc - ae * ap) * (h * cc - ae * ap) +
+    (h * cd - af * ap) * (h * cd - af * ap) +
+    (h * ce - ag * ap) * (h * ce - ag * ap) +
+    (h * cf - ah * ap) * (h * cf - ah * ap) +
+    (i * ar - j * aq) * (i * ar - j * aq) +
+    (i * ba - k * aq) * (i * ba - k * aq) +
+    (i * bb - l * aq) * (i * bb - l * aq) +
+    (i * bc - m * aq) * (i * bc - m * aq) +
+    (i * bd - n * aq) * (i * bd - n * aq) +
+    (i * be - o * aq) * (i * be - o * aq) +
+    (i * bf - p * aq) * (i * bf - p * aq) +
+    (i * bg - q * aq) * (i * bg - q * aq) +
+    (i * bh - r * aq) * (i * bh - r * aq) +
+    (i * bi - s * aq) * (i * bi - s * aq) +
+    (i * bj - t * aq) * (i * bj - t * aq) +
+    (i * bk - u * aq) * (i * bk - u * aq) +
+    (i * bl - v * aq) * (i * bl - v * aq) +
+    (i * bm - w * aq) * (i * bm - w * aq) +
+    (i * bn - x * aq) * (i * bn - x * aq) +
+    (i * bo - y * aq) * (i * bo - y * aq) +
+    (i * bp - z * aq) * (i * bp - z * aq) +
+    (i * bq - aa * aq) * (i * bq - aa * aq) +
+    (i * br - ab * aq) * (i * br - ab * aq) +
+    (i * ca - ac * aq) * (i * ca - ac * aq) +
+    (i * cb - ad * aq) * (i * cb - ad * aq) +
+    (i * cc - ae * aq) * (i * cc - ae * aq) +
+    (i * cd - af * aq) * (i * cd - af * aq) +
+    (i * ce - ag * aq) * (i * ce - ag * aq) +
+    (i * cf - ah * aq) * (i * cf - ah * aq) +
+    (j * ba - k * ar) * (j * ba - k * ar) +
+    (j * bb - l * ar) * (j * bb - l * ar) +
+    (j * bc - m * ar) * (j * bc - m * ar) +
+    (j * bd - n * ar) * (j * bd - n * ar) +
+    (j * be - o * ar) * (j * be - o * ar) +
+    (j * bf - p * ar) * (j * bf - p * ar) +
+    (j * bg - q * ar) * (j * bg - q * ar) +
+    (j * bh - r * ar) * (j * bh - r * ar) +
+    (j * bi - s * ar) * (j * bi - s * ar) +
+    (j * bj - t * ar) * (j * bj - t * ar) +
+    (j * bk - u * ar) * (j * bk - u * ar) +
+    (j * bl - v * ar) * (j * bl - v * ar) +
+    (j * bm - w * ar) * (j * bm - w * ar) +
+    (j * bn - x * ar) * (j * bn - x * ar) +
+    (j * bo - y * ar) * (j * bo - y * ar) +
+    (j * bp - z * ar) * (j * bp - z * ar) +
+    (j * bq - aa * ar) * (j * bq - aa * ar) +
+    (j * br - ab * ar) * (j * br - ab * ar) +
+    (j * ca - ac * ar) * (j * ca - ac * ar) +
+    (j * cb - ad * ar) * (j * cb - ad * ar) +
+    (j * cc - ae * ar) * (j * cc - ae * ar) +
+    (j * cd - af * ar) * (j * cd - af * ar) +
+    (j * ce - ag * ar) * (j * ce - ag * ar) +
+    (j * cf - ah * ar) * (j * cf - ah * ar) +
+    (k * bb - l * ba) * (k * bb - l * ba) +
+    (k * bc - m * ba) * (k * bc - m * ba) +
+    (k * bd - n * ba) * (k * bd - n * ba) +
+    (k * be - o * ba) * (k * be - o * ba) +
+    (k * bf - p * ba) * (k * bf - p * ba) +
+    (k * bg - q * ba) * (k * bg - q * ba) +
+    (k * bh - r * ba) * (k * bh - r * ba) +
+    (k * bi - s * ba) * (k * bi - s * ba) +
+    (k * bj - t * ba) * (k * bj - t * ba) +
+    (k * bk - u * ba) * (k * bk - u * ba) +
+    (k * bl - v * ba) * (k * bl - v * ba) +
+    (k * bm - w * ba) * (k * bm - w * ba) +
+    (k * bn - x * ba) * (k * bn - x * ba) +
+    (k * bo - y * ba) * (k * bo - y * ba) +
+    (k * bp - z * ba) * (k * bp - z * ba) +
+    (k * bq - aa * ba) * (k * bq - aa * ba) +
+    (k * br - ab * ba) * (k * br - ab * ba) +
+    (k * ca - ac * ba) * (k * ca - ac * ba) +
+    (k * cb - ad * ba) * (k * cb - ad * ba) +
+    (k * cc - ae * ba) * (k * cc - ae * ba) +
+    (k * cd - af * ba) * (k * cd - af * ba) +
+    (k * ce - ag * ba) * (k * ce - ag * ba) +
+    (k * cf - ah * ba) * (k * cf - ah * ba) +
+    (l * bc - m * bb) * (l * bc - m * bb) +
+    (l * bd - n * bb) * (l * bd - n * bb) +
+    (l * be - o * bb) * (l * be - o * bb) +
+    (l * bf - p * bb) * (l * bf - p * bb) +
+    (l * bg - q * bb) * (l * bg - q * bb) +
+    (l * bh - r * bb) * (l * bh - r * bb) +
+    (l * bi - s * bb) * (l * bi - s * bb) +
+    (l * bj - t * bb) * (l * bj - t * bb) +
+    (l * bk - u * bb) * (l * bk - u * bb) +
+    (l * bl - v * bb) * (l * bl - v * bb) +
+    (l * bm - w * bb) * (l * bm - w * bb) +
+    (l * bn - x * bb) * (l * bn - x * bb) +
+    (l * bo - y * bb) * (l * bo - y * bb) +
+    (l * bp - z * bb) * (l * bp - z * bb) +
+    (l * bq - aa * bb) * (l * bq - aa * bb) +
+    (l * br - ab * bb) * (l * br - ab * bb) +
+    (l * ca - ac * bb) * (l * ca - ac * bb) +
+    (l * cb - ad * bb) * (l * cb - ad * bb) +
+    (l * cc - ae * bb) * (l * cc - ae * bb) +
+    (l * cd - af * bb) * (l * cd - af * bb) +
+    (l * ce - ag * bb) * (l * ce - ag * bb) +
+    (l * cf - ah * bb) * (l * cf - ah * bb) +
+    (m * bd - n * bc) * (m * bd - n * bc) +
+    (m * be - o * bc) * (m * be - o * bc) +
+    (m * bf - p * bc) * (m * bf - p * bc) +
+    (m * bg - q * bc) * (m * bg - q * bc) +
+    (m * bh - r * bc) * (m * bh - r * bc) +
+    (m * bi - s * bc) * (m * bi - s * bc) +
+    (m * bj - t * bc) * (m * bj - t * bc) +
+    (m * bk - u * bc) * (m * bk - u * bc) +
+    (m * bl - v * bc) * (m * bl - v * bc) +
+    (m * bm - w * bc) * (m * bm - w * bc) +
+    (m * bn - x * bc) * (m * bn - x * bc) +
+    (m * bo - y * bc) * (m * bo - y * bc) +
+    (m * bp - z * bc) * (m * bp - z * bc) +
+    (m * bq - aa * bc) * (m * bq - aa * bc) +
+    (m * br - ab * bc) * (m * br - ab * bc) +
+    (m * ca - ac * bc) * (m * ca - ac * bc) +
+    (m * cb - ad * bc) * (m * cb - ad * bc) +
+    (m * cc - ae * bc) * (m * cc - ae * bc) +
+    (m * cd - af * bc) * (m * cd - af * bc) +
+    (m * ce - ag * bc) * (m * ce - ag * bc) +
+    (m * cf - ah * bc) * (m * cf - ah * bc) +
+    (n * be - o * bd) * (n * be - o * bd) +
+    (n * bf - p * bd) * (n * bf - p * bd) +
+    (n * bg - q * bd) * (n * bg - q * bd) +
+    (n * bh - r * bd) * (n * bh - r * bd) +
+    (n * bi - s * bd) * (n * bi - s * bd) +
+    (n * bj - t * bd) * (n * bj - t * bd) +
+    (n * bk - u * bd) * (n * bk - u * bd) +
+    (n * bl - v * bd) * (n * bl - v * bd) +
+    (n * bm - w * bd) * (n * bm - w * bd) +
+    (n * bn - x * bd) * (n * bn - x * bd) +
+    (n * bo - y * bd) * (n * bo - y * bd) +
+    (n * bp - z * bd) * (n * bp - z * bd) +
+    (n * bq - aa * bd) * (n * bq - aa * bd) +
+    (n * br - ab * bd) * (n * br - ab * bd) +
+    (n * ca - ac * bd) * (n * ca - ac * bd) +
+    (n * cb - ad * bd) * (n * cb - ad * bd) +
+    (n * cc - ae * bd) * (n * cc - ae * bd) +
+    (n * cd - af * bd) * (n * cd - af * bd) +
+    (n * ce - ag * bd) * (n * ce - ag * bd) +
+    (n * cf - ah * bd) * (n * cf - ah * bd) +
+    (o * bf - p * be) * (o * bf - p * be) +
+    (o * bg - q * be) * (o * bg - q * be) +
+    (o * bh - r * be) * (o * bh - r * be) +
+    (o * bi - s * be) * (o * bi - s * be) +
+    (o * bj - t * be) * (o * bj - t * be) +
+    (o * bk - u * be) * (o * bk - u * be) +
+    (o * bl - v * be) * (o * bl - v * be) +
+    (o * bm - w * be) * (o * bm - w * be) +
+    (o * bn - x * be) * (o * bn - x * be) +
+    (o * bo - y * be) * (o * bo - y * be) +
+    (o * bp - z * be) * (o * bp - z * be) +
+    (o * bq - aa * be) * (o * bq - aa * be) +
+    (o * br - ab * be) * (o * br - ab * be) +
+    (o * ca - ac * be) * (o * ca - ac * be) +
+    (o * cb - ad * be) * (o * cb - ad * be) +
+    (o * cc - ae * be) * (o * cc - ae * be) +
+    (o * cd - af * be) * (o * cd - af * be) +
+    (o * ce - ag * be) * (o * ce - ag * be) +
+    (o * cf - ah * be) * (o * cf - ah * be) +
+    (p * bg - q * bf) * (p * bg - q * bf) +
+    (p * bh - r * bf) * (p * bh - r * bf) +
+    (p * bi - s * bf) * (p * bi - s * bf) +
+    (p * bj - t * bf) * (p * bj - t * bf) +
+    (p * bk - u * bf) * (p * bk - u * bf) +
+    (p * bl - v * bf) * (p * bl - v * bf) +
+    (p * bm - w * bf) * (p * bm - w * bf) +
+    (p * bn - x * bf) * (p * bn - x * bf) +
+    (p * bo - y * bf) * (p * bo - y * bf) +
+    (p * bp - z * bf) * (p * bp - z * bf) +
+    (p * bq - aa * bf) * (p * bq - aa * bf) +
+    (p * br - ab * bf) * (p * br - ab * bf) +
+    (p * ca - ac * bf) * (p * ca - ac * bf) +
+    (p * cb - ad * bf) * (p * cb - ad * bf) +
+    (p * cc - ae * bf) * (p * cc - ae * bf) +
+    (p * cd - af * bf) * (p * cd - af * bf) +
+    (p * ce - ag * bf) * (p * ce - ag * bf) +
+    (p * cf - ah * bf) * (p * cf - ah * bf) +
+    (q * bh - r * bg) * (q * bh - r * bg) +
+    (q * bi - s * bg) * (q * bi - s * bg) +
+    (q * bj - t * bg) * (q * bj - t * bg) +
+    (q * bk - u * bg) * (q * bk - u * bg) +
+    (q * bl - v * bg) * (q * bl - v * bg) +
+    (q * bm - w * bg) * (q * bm - w * bg) +
+    (q * bn - x * bg) * (q * bn - x * bg) +
+    (q * bo - y * bg) * (q * bo - y * bg) +
+    (q * bp - z * bg) * (q * bp - z * bg) +
+    (q * bq - aa * bg) * (q * bq - aa * bg) +
+    (q * br - ab * bg) * (q * br - ab * bg) +
+    (q * ca - ac * bg) * (q * ca - ac * bg) +
+    (q * cb - ad * bg) * (q * cb - ad * bg) +
+    (q * cc - ae * bg) * (q * cc - ae * bg) +
+    (q * cd - af * bg) * (q * cd - af * bg) +
+    (q * ce - ag * bg) * (q * ce - ag * bg) +
+    (q * cf - ah * bg) * (q * cf - ah * bg) +
+    (r * bi - s * bh) * (r * bi - s * bh) +
+    (r * bj - t * bh) * (r * bj - t * bh) +
+    (r * bk - u * bh) * (r * bk - u * bh) +
+    (r * bl - v * bh) * (r * bl - v * bh) +
+    (r * bm - w * bh) * (r * bm - w * bh) +
+    (r * bn - x * bh) * (r * bn - x * bh) +
+    (r * bo - y * bh) * (r * bo - y * bh) +
+    (r * bp - z * bh) * (r * bp - z * bh) +
+    (r * bq - aa * bh) * (r * bq - aa * bh) +
+    (r * br - ab * bh) * (r * br - ab * bh) +
+    (r * ca - ac * bh) * (r * ca - ac * bh) +
+    (r * cb - ad * bh) * (r * cb - ad * bh) +
+    (r * cc - ae * bh) * (r * cc - ae * bh) +
+    (r * cd - af * bh) * (r * cd - af * bh) +
+    (r * ce - ag * bh) * (r * ce - ag * bh) +
+    (r * cf - ah * bh) * (r * cf - ah * bh) +
+    (s * bj - t * bi) * (s * bj - t * bi) +
+    (s * bk - u * bi) * (s * bk - u * bi) +
+    (s * bl - v * bi) * (s * bl - v * bi) +
+    (s * bm - w * bi) * (s * bm - w * bi) +
+    (s * bn - x * bi) * (s * bn - x * bi) +
+    (s * bo - y * bi) * (s * bo - y * bi) +
+    (s * bp - z * bi) * (s * bp - z * bi) +
+    (s * bq - aa * bi) * (s * bq - aa * bi) +
+    (s * br - ab * bi) * (s * br - ab * bi) +
+    (s * ca - ac * bi) * (s * ca - ac * bi) +
+    (s * cb - ad * bi) * (s * cb - ad * bi) +
+    (s * cc - ae * bi) * (s * cc - ae * bi) +
+    (s * cd - af * bi) * (s * cd - af * bi) +
+    (s * ce - ag * bi) * (s * ce - ag * bi) +
+    (s * cf - ah * bi) * (s * cf - ah * bi) +
+    (t * bk - u * bj) * (t * bk - u * bj) +
+    (t * bl - v * bj) * (t * bl - v * bj) +
+    (t * bm - w * bj) * (t * bm - w * bj) +
+    (t * bn - x * bj) * (t * bn - x * bj) +
+    (t * bo - y * bj) * (t * bo - y * bj) +
+    (t * bp - z * bj) * (t * bp - z * bj) +
+    (t * bq - aa * bj) * (t * bq - aa * bj) +
+    (t * br - ab * bj) * (t * br - ab * bj) +
+    (t * ca - ac * bj) * (t * ca - ac * bj) +
+    (t * cb - ad * bj) * (t * cb - ad * bj) +
+    (t * cc - ae * bj) * (t * cc - ae * bj) +
+    (t * cd - af * bj) * (t * cd - af * bj) +
+    (t * ce - ag * bj) * (t * ce - ag * bj) +
+    (t * cf - ah * bj) * (t * cf - ah * bj) +
+    (u * bl - v * bk) * (u * bl - v * bk) +
+    (u * bm - w * bk) * (u * bm - w * bk) +
+    (u * bn - x * bk) * (u * bn - x * bk) +
+    (u * bo - y * bk) * (u * bo - y * bk) +
+    (u * bp - z * bk) * (u * bp - z * bk) +
+    (u * bq - aa * bk) * (u * bq - aa * bk) +
+    (u * br - ab * bk) * (u * br - ab * bk) +
+    (u * ca - ac * bk) * (u * ca - ac * bk) +
+    (u * cb - ad * bk) * (u * cb - ad * bk) +
+    (u * cc - ae * bk) * (u * cc - ae * bk) +
+    (u * cd - af * bk) * (u * cd - af * bk) +
+    (u * ce - ag * bk) * (u * ce - ag * bk) +
+    (u * cf - ah * bk) * (u * cf - ah * bk) +
+    (v * bm - w * bl) * (v * bm - w * bl) +
+    (v * bn - x * bl) * (v * bn - x * bl) +
+    (v * bo - y * bl) * (v * bo - y * bl) +
+    (v * bp - z * bl) * (v * bp - z * bl) +
+    (v * bq - aa * bl) * (v * bq - aa * bl) +
+    (v * br - ab * bl) * (v * br - ab * bl) +
+    (v * ca - ac * bl) * (v * ca - ac * bl) +
+    (v * cb - ad * bl) * (v * cb - ad * bl) +
+    (v * cc - ae * bl) * (v * cc - ae * bl) +
+    (v * cd - af * bl) * (v * cd - af * bl) +
+    (v * ce - ag * bl) * (v * ce - ag * bl) +
+    (v * cf - ah * bl) * (v * cf - ah * bl) +
+    (w * bn - x * bm) * (w * bn - x * bm) +
+    (w * bo - y * bm) * (w * bo - y * bm) +
+    (w * bp - z * bm) * (w * bp - z * bm) +
+    (w * bq - aa * bm) * (w * bq - aa * bm) +
+    (w * br - ab * bm) * (w * br - ab * bm) +
+    (w * ca - ac * bm) * (w * ca - ac * bm) +
+    (w * cb - ad * bm) * (w * cb - ad * bm) +
+    (w * cc - ae * bm) * (w * cc - ae * bm) +
+    (w * cd - af * bm) * (w * cd - af * bm) +
+    (w * ce - ag * bm) * (w * ce - ag * bm) +
+    (w * cf - ah * bm) * (w * cf - ah * bm) +
+    (x * bo - y * bn) * (x * bo - y * bn) +
+    (x * bp - z * bn) * (x * bp - z * bn) +
+    (x * bq - aa * bn) * (x * bq - aa * bn) +
+    (x * br - ab * bn) * (x * br - ab * bn) +
+    (x * ca - ac * bn) * (x * ca - ac * bn) +
+    (x * cb - ad * bn) * (x * cb - ad * bn) +
+    (x * cc - ae * bn) * (x * cc - ae * bn) +
+    (x * cd - af * bn) * (x * cd - af * bn) +
+    (x * ce - ag * bn) * (x * ce - ag * bn) +
+    (x * cf - ah * bn) * (x * cf - ah * bn) +
+    (y * bp - z * bo) * (y * bp - z * bo) +
+    (y * bq - aa * bo) * (y * bq - aa * bo) +
+    (y * br - ab * bo) * (y * br - ab * bo) +
+    (y * ca - ac * bo) * (y * ca - ac * bo) +
+    (y * cb - ad * bo) * (y * cb - ad * bo) +
+    (y * cc - ae * bo) * (y * cc - ae * bo) +
+    (y * cd - af * bo) * (y * cd - af * bo) +
+    (y * ce - ag * bo) * (y * ce - ag * bo) +
+    (y * cf - ah * bo) * (y * cf - ah * bo) +
+    (z * bq - aa * bp) * (z * bq - aa * bp) +
+    (z * br - ab * bp) * (z * br - ab * bp) +
+    (z * ca - ac * bp) * (z * ca - ac * bp) +
+    (z * cb - ad * bp) * (z * cb - ad * bp) +
+    (z * cc - ae * bp) * (z * cc - ae * bp) +
+    (z * cd - af * bp) * (z * cd - af * bp) +
+    (z * ce - ag * bp) * (z * ce - ag * bp) +
+    (z * cf - ah * bp) * (z * cf - ah * bp) +
+    (aa * br - ab * bq) * (aa * br - ab * bq) +
+    (aa * ca - ac * bq) * (aa * ca - ac * bq) +
+    (aa * cb - ad * bq) * (aa * cb - ad * bq) +
+    (aa * cc - ae * bq) * (aa * cc - ae * bq) +
+    (aa * cd - af * bq) * (aa * cd - af * bq) +
+    (aa * ce - ag * bq) * (aa * ce - ag * bq) +
+    (aa * cf - ah * bq) * (aa * cf - ah * bq) +
+    (ab * ca - ac * br) * (ab * ca - ac * br) +
+    (ab * cb - ad * br) * (ab * cb - ad * br) +
+    (ab * cc - ae * br) * (ab * cc - ae * br) +
+    (ab * cd - af * br) * (ab * cd - af * br) +
+    (ab * ce - ag * br) * (ab * ce - ag * br) +
+    (ab * cf - ah * br) * (ab * cf - ah * br) +
+    (ac * cb - ad * ca) * (ac * cb - ad * ca) +
+    (ac * cc - ae * ca) * (ac * cc - ae * ca) +
+    (ac * cd - af * ca) * (ac * cd - af * ca) +
+    (ac * ce - ag * ca) * (ac * ce - ag * ca) +
+    (ac * cf - ah * ca) * (ac * cf - ah * ca) +
+    (ad * cc - ae * cb) * (ad * cc - ae * cb) +
+    (ad * cd - af * cb) * (ad * cd - af * cb) +
+    (ad * ce - ag * cb) * (ad * ce - ag * cb) +
+    (ad * cf - ah * cb) * (ad * cf - ah * cb) +
+    (ae * cd - af * cc) * (ae * cd - af * cc) +
+    (ae * ce - ag * cc) * (ae * ce - ag * cc) +
+    (ae * cf - ah * cc) * (ae * cf - ah * cc) +
+    (af * ce - ag * cd) * (af * ce - ag * cd) +
+    (af * cf - ah * cd) * (af * cf - ah * cd) +
+    (ag * cf - ah * ce) * (ag * cf - ah * ce)
+}

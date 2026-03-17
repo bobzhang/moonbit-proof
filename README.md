@@ -131,11 +131,11 @@ moon prove
 This verifies all packages in the workspace. Output shows per-package results
 and a summary of total goals proved.
 
-On the current branch, `moon prove` verifies **136 packages** and **966 goals**.
+On the current branch, `moon prove` verifies **140 packages** and **970 goals**.
 
 ## Examples
 
-The workspace now contains **136 proof packages** spanning branch reasoning,
+The workspace now contains **140 proof packages** spanning branch reasoning,
 closed-form loop invariants, quantified array properties, and multiple flavors
 of binary search.
 
@@ -184,13 +184,14 @@ Highlights:
 `cauchy13`, `cauchy14`, `cauchy15`, `cauchy16`, `cauchy17`, `cauchy18`,
 `cauchy19`, `cauchy20`, `cauchy21`, `cauchy22`, `cauchy23`, `cauchy24`,
 `cauchy25`, `cauchy26`, `cauchy27`, `cauchy28`, `cauchy29`, `cauchy30`,
-`cauchy31`, `cauchy32`, `lagrange4sq`,
+`cauchy31`, `cauchy32`, `cauchy33`, `cauchy34`, `lagrange4sq`,
 `variance4`, `variance5`, `variance6`, `variance7`, `variance8`, `variance9`,
 `variance10`, `variance11`, `variance12`, `variance13`, `variance14`,
 `variance15`, `variance16`, `variance17`, `variance18`, `variance19`,
 `variance20`, `variance21`, `variance22`, `variance23`, `variance24`,
 `variance25`, `variance26`, `variance27`, `variance28`, `variance29`,
-`variance30`, `variance31`, `variance32`, `variance33`, `variance34`
+`variance30`, `variance31`, `variance32`, `variance33`, `variance34`,
+`variance35`, `variance36`
 
 Highlights:
 
@@ -201,11 +202,11 @@ Highlights:
   invariants with exact postconditions.
 - `cassini`, `pell_cassini`, and `lucas_cassini` prove alternating-sign
   identities over three different recurrence-derived quadratic forms.
-- `cauchy2` through `cauchy32` prove exact Cauchy-Schwarz identities in
-  dimensions 2 through 32, not just the final nonnegativity inequality.
+- `cauchy2` through `cauchy34` prove exact Cauchy-Schwarz identities in
+  dimensions 2 through 34, not just the final nonnegativity inequality.
 - `lagrange4sq` proves Lagrange's four-square identity, i.e. norm
   multiplicativity for quaternion-style multiplication.
-- `variance4` through `variance34` prove exact finite-dimensional variance
+- `variance4` through `variance36` prove exact finite-dimensional variance
   identities as sums of pairwise squares.
 
 ### Quantified array invariants and inequalities
