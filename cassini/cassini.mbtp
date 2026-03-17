@@ -1,10 +1,14 @@
+/// The input must be non-negative — Fibonacci indices start at 0.
 predicate nonneg(n : Int) {
   n >= 0
 }
 
-/// Cassini's identity: the result is always 1 or -1.
-/// Specifically, fib(n)*fib(n+2) - fib(n+1)^2 = (-1)^(n+1).
-/// We encode this as result*result == 1.
+/// The postcondition: the result is exactly +1 or -1.
+///
+/// We encode this as result * result == 1, which is equivalent to
+/// |result| == 1 over the integers. This captures the alternating
+/// nature of Cassini's identity without needing to track the parity
+/// of n in the postcondition.
 predicate cassini_ok(result : Int) {
   result * result == 1
 }

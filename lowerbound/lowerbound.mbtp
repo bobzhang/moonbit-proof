@@ -1,21 +1,34 @@
+/// Index i is a valid position in the array (0 <= i < length).
 predicate in_bounds(xs : FixedArray[Int], i : Int) {
   (0 <= i) && (i < xs.length())
 }
 
+/// The array is sorted in non-decreasing order: for any two valid indices
+/// i <= j, we have xs[i] <= xs[j]. This is the precondition that makes
+/// binary search correct.
 predicate sorted(xs : FixedArray[Int]) {
   ∀ i : Int, ∀ j : Int,
     ((in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j)) →
       xs[i] <= xs[j]
 }
 
+/// Every element before index `idx` is strictly less than `key`.
+/// This is the left half of the binary search invariant: we have
+/// already ruled out all positions before `lo`.
 predicate all_less_before(xs : FixedArray[Int], key : Int, idx : Int) {
   ∀ i : Int, ((0 <= i) && (i < idx)) → xs[i] < key
 }
 
+/// Every element from index `idx` onward is greater than or equal to `key`.
+/// This is the right half of the binary search invariant: we know that
+/// everything from `hi` onward is too large (or equal).
 predicate all_geq_from(xs : FixedArray[Int], key : Int, idx : Int) {
   ∀ i : Int, ((idx <= i) && (i < xs.length())) → xs[i] >= key
 }
 
+/// The full postcondition: `result` is a valid split point (0 <= result <= length)
+/// such that everything before it is < key and everything from it onward is >= key.
+/// This uniquely characterizes the lower bound.
 predicate lower_bound_ok(xs : FixedArray[Int], key : Int, result : Int) {
   (all_less_before(xs, key, result)) && (all_geq_from(xs, key, result)) &&
   (0 <= result) && (result <= xs.length())

@@ -1,17 +1,27 @@
+/// Index i is a valid position in the array (0 <= i < length).
 predicate in_bounds(xs : FixedArray[Int], i : Int) {
   (0 <= i) && (i < xs.length())
 }
 
+/// The array has at least two elements — needed so that "closest pair"
+/// is well-defined (you need at least one pair).
 predicate at_least_two(xs : FixedArray[Int]) {
   xs.length() >= 2
 }
 
+/// The array is sorted in non-decreasing order. This is the key property
+/// that makes adjacent-pair search sufficient: in a sorted array, every
+/// non-adjacent gap is a sum of adjacent gaps, so the minimum gap must
+/// occur between neighbors.
 predicate sorted(xs : FixedArray[Int]) {
   ∀ i : Int, ∀ j : Int,
     ((in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j)) →
       xs[i] <= xs[j]
 }
 
+/// The prefix invariant: among all pairs (j, k) with 0 <= j < k <= right,
+/// the adjacent gap at index `best` is at most the gap between any such pair.
+/// This is the inductive hypothesis that grows with each loop iteration.
 predicate closest_pair_prefix(xs : FixedArray[Int], best : Int, right : Int) {
   ∀ j : Int, ∀ k : Int, ((0 <= j) && (j < k) && (k <= right)) →
     (
@@ -22,6 +32,11 @@ predicate closest_pair_prefix(xs : FixedArray[Int], best : Int, right : Int) {
     )
 }
 
+/// The full postcondition: for ALL pairs (j, k) with 0 <= j < k < length,
+/// the gap at `idx` is at most the gap between j and k. This is a universal
+/// statement — it covers every possible pair in the array, not just adjacent
+/// ones. Combined with sortedness, this proves the classical theorem that a
+/// closest pair in a sorted array can always be taken to be adjacent.
 predicate closest_pair_sorted_ok(xs : FixedArray[Int], idx : Int) {
   ∀ j : Int, ∀ k : Int,
     ((0 <= j) && (j < k) && (k < xs.length())) →

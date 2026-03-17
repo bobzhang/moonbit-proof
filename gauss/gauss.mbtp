@@ -1,7 +1,12 @@
+/// The input must be non-negative — the sum 1+2+...+n is only
+/// defined for n >= 0.
 predicate nonneg(n : Int) {
   n >= 0
 }
 
+/// The postcondition encodes Gauss's formula: result * 2 == n * (n + 1).
+/// We use the multiplied-out form (avoiding division) so the SMT solver
+/// works in pure integer arithmetic with no rounding concerns.
 predicate gauss_ok(n : Int, result : Int) {
   result * 2 == n * (n + 1)
 }
