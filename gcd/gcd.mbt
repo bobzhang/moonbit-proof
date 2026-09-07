@@ -16,11 +16,14 @@
 ///
 /// At exit, r1 = 0 and r0 = gcd(a, b), so the first relation gives
 /// the classical Bezout identity: a * x0 + b * y0 = gcd(a, b).
-#requires(pos2(a, b))
-#ensures(gcd_pos(result))
-pub fn gcd(a : Int, b : Int) -> Int {
-  for step = 0, r0 = a, r1 = b, x0 = 1, y0 = 0, x1 = 0, y1 = 1;
-      step < b + 1; {
+pub fn gcd(
+  a : Int,
+  b : Int,
+) -> Int where {
+  proof_require: pos2(a, b),
+  proof_ensure: result => gcd_pos(result),
+} {
+  for step = 0, r0 = a, r1 = b, x0 = 1, y0 = 0, x1 = 0, y1 = 1; step < b + 1; {
     if r1 == 0 {
       // ── GCD found: exit by jumping step to bound ──────────────
       continue b + 1, r0, 0, x0, y0, x1, y1
@@ -42,22 +45,21 @@ pub fn gcd(a : Int, b : Int) -> Int {
     r0
   } where {
     // ── Step counter ────────────────────────────────────────────
-    invariant: 0 <= step,
+    proof_invariant: 0 <= step,
 
     // ── Remainder bounds ────────────────────────────────────────
-    invariant: r0 >= 1,
-    invariant: r1 >= 0,
+    proof_invariant: r0 >= 1,
+    proof_invariant: r1 >= 0,
 
     // ── Bezout's identity for r0: a*x0 + b*y0 = r0 ─────────────
-    invariant: a * x0 + b * y0 == r0,
+    proof_invariant: a * x0 + b * y0 == r0,
 
     // ── Bezout's identity for r1: a*x1 + b*y1 = r1 ─────────────
-    invariant: a * x1 + b * y1 == r1,
+    proof_invariant: a * x1 + b * y1 == r1,
 
     // ── Termination bound: r1 strictly decreases each step ──────
-    invariant: r1 == 0 || r1 + step <= b,
-
-    reasoning: (
+    proof_invariant: r1 == 0 || r1 + step <= b,
+    proof_reasoning: (
       #| Seven state variables: step counter, two remainders (r0, r1),
       #| and four Bezout coefficients (x0, y0, x1, y1).
       #|

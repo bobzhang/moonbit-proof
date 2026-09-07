@@ -7,17 +7,20 @@
 ///
 /// Invariant:
 ///   4*sum == i²(i-1)²
-#requires(nonneg(n))
-#ensures(sum_cubes_ok(n, result))
-pub fn sum_cubes(n : Int) -> Int {
+pub fn sum_cubes(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => sum_cubes_ok(n, result),
+} {
   for i = 0, sum = 0; i < n; {
     let new_sum = sum + i * i * i
     continue i + 1, new_sum
   } nobreak {
     sum
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: 4 * sum == i * i * (i - 1) * (i - 1),
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: 4 * sum == i * i * (i - 1) * (i - 1),
   }
 }

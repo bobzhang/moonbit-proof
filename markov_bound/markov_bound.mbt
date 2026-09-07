@@ -5,10 +5,14 @@
 /// proving >= 0. The invariant t*count <= sum is maintained because:
 ///   if xs[i] >= t: t*(count+1) = t*count + t <= sum + xs[i]  ✓
 ///   if xs[i] < t:  t*count <= sum <= sum + xs[i]  ✓
-#requires(all_nonneg(xs))
-#requires(pos_t(t))
-#ensures(markov_ok(result))
-pub fn markov(xs : FixedArray[Int], t : Int) -> Int {
+pub fn markov(
+  xs : FixedArray[Int],
+  t : Int,
+) -> Int where {
+  proof_require: all_nonneg(xs),
+  proof_require: pos_t(t),
+  proof_ensure: result => markov_ok(result),
+} {
   for i = 0, sum = 0, count = 0; i < xs.length(); {
     let new_sum = sum + xs[i]
     let new_count = if xs[i] >= t { count + 1 } else { count }
@@ -16,10 +20,10 @@ pub fn markov(xs : FixedArray[Int], t : Int) -> Int {
   } nobreak {
     sum - t * count
   } where {
-    invariant: 0 <= i,
-    invariant: i <= xs.length(),
-    invariant: sum >= 0,
-    invariant: count >= 0,
-    invariant: t * count <= sum,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length(),
+    proof_invariant: sum >= 0,
+    proof_invariant: count >= 0,
+    proof_invariant: t * count <= sum,
   }
 }

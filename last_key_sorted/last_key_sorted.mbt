@@ -3,9 +3,13 @@
 ///
 /// The proof is phrased as an upper-bound search plus a witness check on the
 /// predecessor position.
-#requires(sorted(xs))
-#ensures(last_key_sorted_ok(xs, key, result))
-pub fn last_key_sorted(xs : FixedArray[Int], key : Int) -> Int {
+pub fn last_key_sorted(
+  xs : FixedArray[Int],
+  key : Int,
+) -> Int where {
+  proof_require: sorted(xs),
+  proof_ensure: result => last_key_sorted_ok(xs, key, result),
+} {
   let ub = for lo = 0, hi = xs.length(); lo < hi; {
     let mid = lo + (hi - lo) / 2
     if xs[mid] <= key {
@@ -16,11 +20,11 @@ pub fn last_key_sorted(xs : FixedArray[Int], key : Int) -> Int {
   } nobreak {
     lo
   } where {
-    invariant: 0 <= lo,
-    invariant: lo <= hi,
-    invariant: hi <= xs.length(),
-    invariant: all_leq_before(xs, key, lo),
-    invariant: all_gt_from(xs, key, hi),
+    proof_invariant: 0 <= lo,
+    proof_invariant: lo <= hi,
+    proof_invariant: hi <= xs.length(),
+    proof_invariant: all_leq_before(xs, key, lo),
+    proof_invariant: all_gt_from(xs, key, hi),
   }
   let idx = ub - 1
   if 0 <= idx && xs[idx] == key {

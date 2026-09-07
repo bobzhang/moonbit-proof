@@ -18,11 +18,14 @@
 /// The doubly-quantified all-pairs bound comes from band tracking: every
 /// partial sum xs[k] - xs[0] lies in [lo, hi], so any pairwise difference
 /// xs[i] - xs[j] <= hi - lo <= TV.
-#requires(at_least_two(xs))
-#ensures(signal_ok(xs, result))
-pub fn signal_stats(xs : FixedArray[Int]) -> Int {
-  for i = 1, tv = 0, max_ch = 0, sum = 0, lo = 0, hi = 0, sorted = 1;
-      i < xs.length(); {
+pub fn signal_stats(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: at_least_two(xs),
+  proof_ensure: result => signal_ok(xs, result),
+} {
+  for i = 1, tv = 0, max_ch = 0, sum = 0, lo = 0, hi = 0, sorted = 1; i <
+     xs.length(); {
     // ── Adjacent change ─────────────────────────────────────────
     let d = xs[i] - xs[i - 1]
     let abs_d = if d >= 0 { d } else { -d }
@@ -48,42 +51,41 @@ pub fn signal_stats(xs : FixedArray[Int]) -> Int {
     tv
   } where {
     // ── Index bounds ────────────────────────────────────────────
-    invariant: 1 <= i,
-    invariant: i <= xs.length(),
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length(),
 
     // ── Total variation: non-negative ───────────────────────────
-    invariant: tv >= 0,
+    proof_invariant: tv >= 0,
 
     // ── Max change: non-negative ────────────────────────────────
-    invariant: max_ch >= 0,
+    proof_invariant: max_ch >= 0,
 
     // ── Bounded variation: TV <= max_change * step_count ─────────
-    invariant: tv <= max_ch * (i - 1),
+    proof_invariant: tv <= max_ch * (i - 1),
 
     // ── Telescoping identity ────────────────────────────────────
-    invariant: sum == xs[i - 1] - xs[0],
+    proof_invariant: sum == xs[i - 1] - xs[0],
 
     // ── Triangle inequality: TV >= |sum| ────────────────────────
-    invariant: tv >= sum,
-    invariant: tv >= -sum,
+    proof_invariant: tv >= sum,
+    proof_invariant: tv >= -sum,
 
     // ── Band bounds ─────────────────────────────────────────────
-    invariant: lo <= sum,
-    invariant: sum <= hi,
-    invariant: lo <= 0,
-    invariant: hi >= 0,
+    proof_invariant: lo <= sum,
+    proof_invariant: sum <= hi,
+    proof_invariant: lo <= 0,
+    proof_invariant: hi >= 0,
 
     // ── TV dominates the band width ─────────────────────────────
-    invariant: tv >= hi - lo,
+    proof_invariant: tv >= hi - lo,
 
     // ── All partial sums lie in the band (universally quantified)
-    invariant: prefix_in_band(xs, lo, hi, i - 1),
+    proof_invariant: prefix_in_band(xs, lo, hi, i - 1),
 
     // ── Sorted check ────────────────────────────────────────────
-    invariant: sorted == 0 || sorted == 1,
-    invariant: adj_sorted_when_ok(xs, sorted, i),
-
-    reasoning: (
+    proof_invariant: sorted == 0 || sorted == 1,
+    proof_invariant: adj_sorted_when_ok(xs, sorted, i),
+    proof_reasoning: (
       #| Seven state variables track four independent analyses simultaneously.
       #|
       #| TOTAL VARIATION (tv): sum of |adjacent changes|.

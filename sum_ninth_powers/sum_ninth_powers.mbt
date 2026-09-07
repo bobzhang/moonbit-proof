@@ -4,18 +4,21 @@
 ///
 /// To avoid division in the proof obligation, the postcondition is:
 ///   20 * result == n^2 (n-1)^2 (2n^6 - 6n^5 + n^4 + 8n^3 + n^2 - 6n - 3)
-#requires(nonneg(n))
-#ensures(sum_ninth_powers_ok(n, result))
-pub fn sum_ninth_powers(n : Int) -> Int {
+pub fn sum_ninth_powers(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => sum_ninth_powers_ok(n, result),
+} {
   for i = 0, sum = 0; i < n; {
     let new_sum = sum + i * i * i * i * i * i * i * i * i
     continue i + 1, new_sum
   } nobreak {
     sum
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: 20 * sum ==
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: 20 * sum ==
     i *
     i *
     (i - 1) *

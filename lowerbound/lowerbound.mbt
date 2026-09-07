@@ -9,9 +9,13 @@
 /// years from the first binary search paper (1946) to the first correct
 /// published implementation (1962). Off-by-one errors, infinite loops, and
 /// wrong boundary updates remain common pitfalls. This proof eliminates them.
-#requires(sorted(xs))
-#ensures(lower_bound_ok(xs, key, result))
-pub fn lower_bound(xs : FixedArray[Int], key : Int) -> Int {
+pub fn lower_bound(
+  xs : FixedArray[Int],
+  key : Int,
+) -> Int where {
+  proof_require: sorted(xs),
+  proof_ensure: result => lower_bound_ok(xs, key, result),
+} {
   for lo = 0, hi = xs.length(); lo < hi; {
     let mid = lo + (hi - lo) / 2
     if xs[mid] < key {
@@ -22,12 +26,12 @@ pub fn lower_bound(xs : FixedArray[Int], key : Int) -> Int {
   } nobreak {
     lo
   } where {
-    invariant: 0 <= lo,
-    invariant: lo <= hi,
-    invariant: hi <= xs.length(),
-    invariant: all_less_before(xs, key, lo),
-    invariant: all_geq_from(xs, key, hi),
-    reasoning: (
+    proof_invariant: 0 <= lo,
+    proof_invariant: lo <= hi,
+    proof_invariant: hi <= xs.length(),
+    proof_invariant: all_less_before(xs, key, lo),
+    proof_invariant: all_geq_from(xs, key, hi),
+    proof_reasoning: (
       #| We maintain a search window [lo, hi) with two quantified invariants:
       #|   - `all_less_before(xs, key, lo)` -- every element before `lo` is < key
       #|   - `all_geq_from(xs, key, hi)` -- every element from `hi` onward is >= key

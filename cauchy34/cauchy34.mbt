@@ -2,7 +2,6 @@
 /// 34-dimensional Cauchy-Schwarz identity:
 ///   (||u||^2)(||v||^2) - (u.v)^2
 /// = Sum_{i<j} (u_i v_j - u_j v_i)^2.
-#ensures(cauchy34_ok(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, ca, cb, cc, cd, ce, cf, result))
 pub fn cauchy34_gap(
   a : Int,
   b : Int,
@@ -72,7 +71,16 @@ pub fn cauchy34_gap(
   cd : Int,
   ce : Int,
   cf : Int,
-) -> Int {
+) -> Int where {
+  proof_ensure: result => {
+    cauchy34_ok(
+      a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y,
+      z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar,
+      ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, ca,
+      cb, cc, cd, ce, cf, result,
+    )
+  },
+} {
   (
     a * a +
     b * b +

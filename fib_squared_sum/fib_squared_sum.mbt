@@ -10,9 +10,12 @@
 /// Need: a*b == new_a*new_b - new_a² = b*(a+b) - b² = ab.  ✓
 ///
 /// One of the most elegant Fibonacci identities.
-#requires(nonneg(n))
-#ensures(fib_sq_ok(result))
-pub fn fib_sum_of_squares(n : Int) -> Int {
+pub fn fib_sum_of_squares(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => fib_sq_ok(result),
+} {
   for i = 0, a = 0, b = 1, sqsum = 0; i < n; {
     let new_sqsum = sqsum + a * a
     let new_a = b
@@ -21,10 +24,10 @@ pub fn fib_sum_of_squares(n : Int) -> Int {
   } nobreak {
     sqsum - a * b + a * a
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: a >= 0,
-    invariant: b >= 1,
-    invariant: sqsum == a * b - a * a,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: a >= 0,
+    proof_invariant: b >= 1,
+    proof_invariant: sqsum == a * b - a * a,
   }
 }

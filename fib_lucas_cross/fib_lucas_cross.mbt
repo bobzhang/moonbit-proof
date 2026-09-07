@@ -22,9 +22,12 @@
 /// The identity c² - 5a² = 4·(-1)^n connects to the Pell equation
 /// x² - 5y² = ±4, whose solutions are exactly the Lucas-Fibonacci pairs.
 /// This is the algebraic foundation of the golden ratio's number theory.
-#requires(nonneg(n))
-#ensures(fib_lucas_ok(result))
-pub fn fib_lucas(n : Int) -> Int {
+pub fn fib_lucas(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => fib_lucas_ok(result),
+} {
   for i = 0, a = 0, b = 1, c = 2, d = 1, sign = 1; i < n; {
     // ── Fibonacci step: F(i), F(i+1) → F(i+1), F(i+2) ─────────
     let new_a = b
@@ -41,25 +44,24 @@ pub fn fib_lucas(n : Int) -> Int {
   } nobreak {
     c * c - 5 * a * a
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
 
     // ── Sign tracking ───────────────────────────────────────────
-    invariant: sign == 1 || sign == -1,
+    proof_invariant: sign == 1 || sign == -1,
 
     // ── INVARIANT 1: Fibonacci-Lucas Cassini identity ───────────
     // L(n)² - 5·F(n)² = 4·(-1)^n
-    invariant: c * c - 5 * a * a == 4 * sign,
+    proof_invariant: c * c - 5 * a * a == 4 * sign,
 
     // ── INVARIANT 2: Norm identity ──────────────────────────────
     // L(n)² + L(n+1)² = 5·(F(n)² + F(n+1)²)
-    invariant: c * c + d * d == 5 * a * a + 5 * b * b,
+    proof_invariant: c * c + d * d == 5 * a * a + 5 * b * b,
 
     // ── INVARIANT 3: Cross-product identity ─────────────────────
     // L(n)·L(n+1) - 5·F(n)·F(n+1) = 2·(-1)^n
-    invariant: c * d - 5 * a * b == 2 * sign,
-
-    reasoning: (
+    proof_invariant: c * d - 5 * a * b == 2 * sign,
+    proof_reasoning: (
       #| Three quadratic form invariants that INTERACT during preservation:
       #|
       #| INVARIANT 1 PRESERVATION: need d²-5b² = -4·sign.

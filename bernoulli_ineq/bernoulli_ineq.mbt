@@ -7,10 +7,14 @@
 /// (since lin >= 1 and x >= 0, so lin*x >= x).
 ///
 /// Returns pow - lin, proving >= 0.
-#requires(nonneg_x(x))
-#requires(nonneg_n(n))
-#ensures(bernoulli_ok(result))
-pub fn bernoulli(x : Int, n : Int) -> Int {
+pub fn bernoulli(
+  x : Int,
+  n : Int,
+) -> Int where {
+  proof_require: nonneg_x(x),
+  proof_require: nonneg_n(n),
+  proof_ensure: result => bernoulli_ok(result),
+} {
   for i = 0, pow = 1, lin = 1; i < n; {
     let new_pow = pow * (1 + x)
     let new_lin = lin + x
@@ -18,10 +22,10 @@ pub fn bernoulli(x : Int, n : Int) -> Int {
   } nobreak {
     pow - lin
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: pow >= 1,
-    invariant: lin >= 1,
-    invariant: pow >= lin,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: pow >= 1,
+    proof_invariant: lin >= 1,
+    proof_invariant: pow >= lin,
   }
 }

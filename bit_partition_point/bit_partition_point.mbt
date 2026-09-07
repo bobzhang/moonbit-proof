@@ -4,10 +4,13 @@
 ///
 /// This is a specialized binary search with the postcondition written as a
 /// clean zero-prefix / one-suffix split.
-#requires(bits(xs))
-#requires(bit_sorted(xs))
-#ensures(bit_partition_ok(xs, result))
-pub fn first_one(xs : FixedArray[Int]) -> Int {
+pub fn first_one(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: bits(xs),
+  proof_require: bit_sorted(xs),
+  proof_ensure: result => bit_partition_ok(xs, result),
+} {
   for lo = 0, hi = xs.length(); lo < hi; {
     let mid = lo + (hi - lo) / 2
     if xs[mid] == 0 {
@@ -18,10 +21,10 @@ pub fn first_one(xs : FixedArray[Int]) -> Int {
   } nobreak {
     lo
   } where {
-    invariant: 0 <= lo,
-    invariant: lo <= hi,
-    invariant: hi <= xs.length(),
-    invariant: all_zero_before(xs, lo),
-    invariant: all_one_from(xs, hi),
+    proof_invariant: 0 <= lo,
+    proof_invariant: lo <= hi,
+    proof_invariant: hi <= xs.length(),
+    proof_invariant: all_zero_before(xs, lo),
+    proof_invariant: all_one_from(xs, hi),
   }
 }

@@ -11,4 +11,3 @@ pub fn sum_tenth_powers(Int) -> Int
 // Type aliases
 
 // Traits
-

@@ -5,11 +5,14 @@
 ///
 /// This pushes the binary-search style further than plain lower/upper bound by
 /// combining a partition search with a global minimum witness postcondition.
-#requires(nonempty(xs))
-#requires(anchor_partition(xs))
-#requires(anchor_segment_sorted(xs))
-#ensures(rotation_pivot_ok(xs, result))
-pub fn rotation_pivot(xs : FixedArray[Int]) -> Int {
+pub fn rotation_pivot(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: nonempty(xs),
+  proof_require: anchor_partition(xs),
+  proof_require: anchor_segment_sorted(xs),
+  proof_ensure: result => rotation_pivot_ok(xs, result),
+} {
   if xs[xs.length() - 1] >= xs[0] {
     0
   } else {
@@ -23,11 +26,11 @@ pub fn rotation_pivot(xs : FixedArray[Int]) -> Int {
     } nobreak {
       lo
     } where {
-      invariant: 1 <= lo,
-      invariant: lo <= hi,
-      invariant: hi <= xs.length(),
-      invariant: ge_anchor_before(xs, lo),
-      invariant: lt_anchor_from(xs, hi),
+      proof_invariant: 1 <= lo,
+      proof_invariant: lo <= hi,
+      proof_invariant: hi <= xs.length(),
+      proof_invariant: ge_anchor_before(xs, lo),
+      proof_invariant: lt_anchor_from(xs, hi),
     }
   }
 }

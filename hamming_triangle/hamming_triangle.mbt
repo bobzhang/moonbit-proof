@@ -9,13 +9,14 @@
 /// differ, and the triangle inequality is the foundational property that
 /// makes it a valid metric — essential for error-correcting codes, nearest-
 /// neighbor search, and DNA sequence analysis.
-#requires(same_length(a, b, c))
-#ensures(nonneg(result))
 pub fn hamming_triangle_gap(
   a : FixedArray[Int],
   b : FixedArray[Int],
   c : FixedArray[Int],
-) -> Int {
+) -> Int where {
+  proof_require: same_length(a, b, c),
+  proof_ensure: result => nonneg(result),
+} {
   for i = 0, dab = 0, dbc = 0, dac = 0; i < a.length(); {
     let delta_ab = if a[i] == b[i] { 0 } else { 1 }
     let delta_bc = if b[i] == c[i] { 0 } else { 1 }
@@ -24,13 +25,13 @@ pub fn hamming_triangle_gap(
   } nobreak {
     dab + dbc - dac
   } where {
-    invariant: 0 <= i,
-    invariant: i <= a.length(),
-    invariant: dab >= 0,
-    invariant: dbc >= 0,
-    invariant: dac >= 0,
-    invariant: dab + dbc >= dac,
-    reasoning: (
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= a.length(),
+    proof_invariant: dab >= 0,
+    proof_invariant: dbc >= 0,
+    proof_invariant: dac >= 0,
+    proof_invariant: dab + dbc >= dac,
+    proof_reasoning: (
       #| At each position i, we compare three values a[i], b[i], c[i] and
       #| compute whether each pair matches or differs. The key insight:
       #| at EVERY position, delta_ab + delta_bc >= delta_ac.

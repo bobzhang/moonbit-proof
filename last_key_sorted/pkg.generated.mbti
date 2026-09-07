@@ -11,4 +11,3 @@ pub fn last_key_sorted(FixedArray[Int], Int) -> Int
 // Type aliases
 
 // Traits
-

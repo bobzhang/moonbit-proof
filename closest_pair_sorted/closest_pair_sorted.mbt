@@ -8,10 +8,13 @@
 /// The postcondition is remarkably strong — it quantifies over ALL pairs (j, k)
 /// in the entire array, not just adjacent ones, and proves that no distant pair
 /// can have a smaller gap than the pair at `result`.
-#requires(at_least_two(xs))
-#requires(sorted(xs))
-#ensures(closest_pair_sorted_ok(xs, result))
-pub fn closest_pair_sorted(xs : FixedArray[Int]) -> Int {
+pub fn closest_pair_sorted(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: at_least_two(xs),
+  proof_require: sorted(xs),
+  proof_ensure: result => closest_pair_sorted_ok(xs, result),
+} {
   for i = 1, best = 0; i < xs.length() - 1; {
     let best_gap = xs[best + 1] - xs[best]
     let cur_gap = xs[i + 1] - xs[i]
@@ -20,12 +23,12 @@ pub fn closest_pair_sorted(xs : FixedArray[Int]) -> Int {
   } nobreak {
     best
   } where {
-    invariant: 1 <= i,
-    invariant: i <= xs.length() - 1,
-    invariant: 0 <= best,
-    invariant: best < i,
-    invariant: closest_pair_prefix(xs, best, i),
-    reasoning: (
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length() - 1,
+    proof_invariant: 0 <= best,
+    proof_invariant: best < i,
+    proof_invariant: closest_pair_prefix(xs, best, i),
+    proof_reasoning: (
       #| Key insight: In a sorted array, the distance between any two elements
       #| xs[j] and xs[k] (where j < k) decomposes into a sum of adjacent gaps:
       #|

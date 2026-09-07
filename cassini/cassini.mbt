@@ -8,9 +8,12 @@
 /// between them, always equals exactly +1 or -1, alternating with each step.
 /// This identity connects the Fibonacci sequence to determinants of 2×2
 /// matrices and has deep ties to continued fractions and hyperbolic geometry.
-#requires(nonneg(n))
-#ensures(cassini_ok(result))
-pub fn cassini(n : Int) -> Int {
+pub fn cassini(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => cassini_ok(result),
+} {
   for i = 0, a = 0, b = 1, sign = -1; i < n; {
     let new_a = b
     let new_b = a + b
@@ -19,13 +22,13 @@ pub fn cassini(n : Int) -> Int {
   } nobreak {
     a * a + a * b - b * b
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: a >= 0,
-    invariant: b >= 1,
-    invariant: sign == 1 || sign == -1,
-    invariant: a * a + a * b - b * b == sign,
-    reasoning: (
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: a >= 0,
+    proof_invariant: b >= 1,
+    proof_invariant: sign == 1 || sign == -1,
+    proof_invariant: a * a + a * b - b * b == sign,
+    proof_reasoning: (
       #| We track three loop variables: a = fib(i), b = fib(i+1), and
       #| sign = (-1)^(i+1). The core invariant is the quadratic form:
       #|

@@ -8,9 +8,12 @@
 /// The postcondition uses a DOUBLY-QUANTIFIED universal statement: for ALL
 /// pairs (j, k) with j <= k, the result is at least xs[k] - xs[j]. This
 /// proves global optimality over every possible buy-sell pair in the array.
-#requires(nonempty(xs))
-#ensures(maxprofit_ok(xs, result))
-pub fn max_profit(xs : FixedArray[Int]) -> Int {
+pub fn max_profit(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: nonempty(xs),
+  proof_ensure: result => maxprofit_ok(xs, result),
+} {
   for i = 1, min_price = xs[0], profit = 0; i < xs.length(); {
     let new_min = if xs[i] < min_price { xs[i] } else { min_price }
     let cur_profit = xs[i] - min_price
@@ -19,12 +22,12 @@ pub fn max_profit(xs : FixedArray[Int]) -> Int {
   } nobreak {
     profit
   } where {
-    invariant: 1 <= i,
-    invariant: i <= xs.length(),
-    invariant: profit >= 0,
-    invariant: min_in_prefix(xs, min_price, i),
-    invariant: profit_optimal(xs, profit, i),
-    reasoning: (
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length(),
+    proof_invariant: profit >= 0,
+    proof_invariant: min_in_prefix(xs, min_price, i),
+    proof_invariant: profit_optimal(xs, profit, i),
+    proof_reasoning: (
       #| Two invariants work together:
       #|   1. min_in_prefix: min_price <= xs[k] for all k < i (running minimum)
       #|   2. profit_optimal: profit >= xs[k] - xs[j] for all j <= k < i

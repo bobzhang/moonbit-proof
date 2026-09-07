@@ -10,9 +10,13 @@
 ///   (r-1)*(sum + pow) = (r-1)*sum + (r-1)*pow
 ///                     = (pow - 1) + r*pow - pow
 ///                     = r*pow - 1 = new_pow - 1  ✓
-#requires(nonneg(n))
-#ensures(geom_ok(result))
-pub fn geometric_series(n : Int, r : Int) -> Int {
+pub fn geometric_series(
+  n : Int,
+  r : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => geom_ok(result),
+} {
   for i = 0, sum = 0, pow = 1; i < n; {
     let new_sum = sum + pow
     let new_pow = pow * r
@@ -20,8 +24,8 @@ pub fn geometric_series(n : Int, r : Int) -> Int {
   } nobreak {
     (r - 1) * sum - pow + 1
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: (r - 1) * sum == pow - 1,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: (r - 1) * sum == pow - 1,
   }
 }
