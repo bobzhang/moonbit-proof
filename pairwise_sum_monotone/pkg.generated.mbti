@@ -1,0 +1,13 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "bobzhang/prove/pairwise_sum_monotone"
+
+// Values
+pub fn pairwise_sum_gap(FixedArray[Int], FixedArray[Int]) -> Int
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

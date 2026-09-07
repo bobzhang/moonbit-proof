@@ -33,19 +33,19 @@ let new_found = if xs[i] == key { i } else { found }
 continue i + 1, new_found
 ```
 
-### `#requires` / `#ensures` only accept predicate calls
+### `proof_require` / `proof_ensure` only accept predicate calls
 
-Inline boolean expressions like `#requires(lo <= hi)` cause a syntax error.
+Inline boolean expressions like `proof_require: lo <= hi` cause a syntax error.
 A named predicate must be defined in the `.mbtp` file and referenced by name.
 
 ```moonbit
 // ✗ Does not work
-#requires(lo <= hi)
+//   proof_require: lo <= hi,
 
 // ✓ Works — define predicate in .mbtp
 predicate valid_bounds(lo : Int, hi : Int) { lo <= hi }
-// then in .mbt
-#requires(valid_bounds(lo, hi))
+// then in the function's `where` clause in .mbt
+//   proof_require: valid_bounds(lo, hi),
 ```
 
 ### `∀` (forall) must be at the top level of a predicate body

@@ -11,4 +11,3 @@ pub fn sum_fifth_powers(Int) -> Int
 // Type aliases
 
 // Traits
-

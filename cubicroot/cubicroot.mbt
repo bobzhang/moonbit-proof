@@ -6,9 +6,12 @@
 ///
 /// Z3 must reason about CUBIC terms during both the midpoint test
 /// and the search space narrowing — significantly harder than isqrt.
-#requires(nonneg(n))
-#ensures(cbrt_ok(n, result))
-pub fn icbrt(n : Int) -> Int {
+pub fn icbrt(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => cbrt_ok(n, result),
+} {
   for lo = 0, hi = n + 1; lo < hi - 1; {
     let mid = lo + (hi - lo) / 2
     if mid * mid * mid <= n {
@@ -19,9 +22,9 @@ pub fn icbrt(n : Int) -> Int {
   } nobreak {
     lo
   } where {
-    invariant: 0 <= lo,
-    invariant: lo < hi,
-    invariant: lo * lo * lo <= n,
-    invariant: n < hi * hi * hi,
+    proof_invariant: 0 <= lo,
+    proof_invariant: lo < hi,
+    proof_invariant: lo * lo * lo <= n,
+    proof_invariant: n < hi * hi * hi,
   }
 }

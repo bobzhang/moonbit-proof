@@ -3,8 +3,11 @@
 ///
 /// Returns `Σ |xs[i]|` and proves that every `|xs[k]|` is bounded by the
 /// returned value.
-#ensures(abs_sum_dominates_each_ok(xs, result))
-pub fn abs_sum(xs : FixedArray[Int]) -> Int {
+pub fn abs_sum(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_ensure: result => abs_sum_dominates_each_ok(xs, result),
+} {
   for i = 0, sum = 0; i < xs.length(); {
     let x = xs[i]
     let abs_x = if x >= 0 { x } else { -x }
@@ -13,9 +16,9 @@ pub fn abs_sum(xs : FixedArray[Int]) -> Int {
   } nobreak {
     sum
   } where {
-    invariant: 0 <= i,
-    invariant: i <= xs.length(),
-    invariant: sum >= 0,
-    invariant: abs_prefix_bounded(xs, sum, i),
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length(),
+    proof_invariant: sum >= 0,
+    proof_invariant: abs_prefix_bounded(xs, sum, i),
   }
 }

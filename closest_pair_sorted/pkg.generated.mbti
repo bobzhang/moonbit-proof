@@ -11,4 +11,3 @@ pub fn closest_pair_sorted(FixedArray[Int]) -> Int
 // Type aliases
 
 // Traits
-

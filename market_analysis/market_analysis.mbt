@@ -20,11 +20,14 @@
 /// the proof techniques from maxprofit (doubly-quantified optimization),
 /// total_variation (triangle inequality + telescoping), and range tracking
 /// (min/max with universal bounds) into one unified proof.
-#requires(at_least_two(xs))
-#ensures(market_ok(xs, result))
-pub fn analyze(xs : FixedArray[Int]) -> Int {
-  for i = 1, min_p = xs[0], max_p = xs[0], profit = 0, tv = 0, sum = 0;
-      i < xs.length(); {
+pub fn analyze(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: at_least_two(xs),
+  proof_ensure: result => market_ok(xs, result),
+} {
+  for i = 1, min_p = xs[0], max_p = xs[0], profit = 0, tv = 0, sum = 0; i <
+     xs.length(); {
     // ── Price extremes ──────────────────────────────────────────
     let new_min = if xs[i] < min_p { xs[i] } else { min_p }
     let new_max = if xs[i] > max_p { xs[i] } else { max_p }
@@ -46,28 +49,27 @@ pub fn analyze(xs : FixedArray[Int]) -> Int {
     profit
   } where {
     // ── Bounds ──────────────────────────────────────────────────
-    invariant: 1 <= i,
-    invariant: i <= xs.length(),
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length(),
 
     // ── Min/max are correct (universally quantified) ────────────
-    invariant: min_in_prefix(xs, min_p, i),
-    invariant: max_in_prefix(xs, max_p, i),
-    invariant: max_p >= min_p,
+    proof_invariant: min_in_prefix(xs, min_p, i),
+    proof_invariant: max_in_prefix(xs, max_p, i),
+    proof_invariant: max_p >= min_p,
 
     // ── Profit is optimal (doubly quantified over ALL pairs) ────
-    invariant: profit >= 0,
-    invariant: profit_optimal(xs, profit, i),
+    proof_invariant: profit >= 0,
+    proof_invariant: profit_optimal(xs, profit, i),
 
     // ── Profit never exceeds the price range ────────────────────
-    invariant: profit <= max_p - min_p,
+    proof_invariant: profit <= max_p - min_p,
 
     // ── Total variation dominates the telescoping sum ────────────
-    invariant: tv >= 0,
-    invariant: sum == xs[i - 1] - xs[0],
-    invariant: tv >= sum,
-    invariant: tv >= -sum,
-
-    reasoning: (
+    proof_invariant: tv >= 0,
+    proof_invariant: sum == xs[i - 1] - xs[0],
+    proof_invariant: tv >= sum,
+    proof_invariant: tv >= -sum,
+    proof_reasoning: (
       #| Six state variables track three independent analyses simultaneously:
       #|
       #| 1. PRICE EXTREMES (min_p, max_p)

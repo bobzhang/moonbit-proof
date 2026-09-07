@@ -20,14 +20,17 @@
 ///
 /// and simultaneously verifies standard single-array properties of xs
 /// (total variation >= |telescoping sum|).
-#requires(same_length(xs, ys))
-#requires(pointwise_le(xs, ys))
-#requires(nonempty(xs))
-#ensures(paired_ok(result))
-pub fn paired_gap(xs : FixedArray[Int], ys : FixedArray[Int]) -> Int {
-  for i = 0, sum_x = 0, sum_y = 0, min_x = xs[0], max_x = xs[0], min_y = ys[0],
-      max_y = ys[0], tv_x = 0;
-      i < xs.length(); {
+pub fn paired_gap(
+  xs : FixedArray[Int],
+  ys : FixedArray[Int],
+) -> Int where {
+  proof_require: same_length(xs, ys),
+  proof_require: pointwise_le(xs, ys),
+  proof_require: nonempty(xs),
+  proof_ensure: result => paired_ok(result),
+} {
+  for i = 0, sum_x = 0, sum_y = 0, min_x = xs[0], max_x = xs[0], min_y = ys[0], max_y = ys[0], tv_x = 0; i <
+     xs.length(); {
     // ── Sum tracking for both arrays ────────────────────────────
     let new_sum_x = sum_x + xs[i]
     let new_sum_y = sum_y + ys[i]
@@ -49,38 +52,43 @@ pub fn paired_gap(xs : FixedArray[Int], ys : FixedArray[Int]) -> Int {
       0
     }
 
-    continue i + 1, new_sum_x, new_sum_y, new_min_x, new_max_x, new_min_y,
-      new_max_y, new_tv_x
+    continue i + 1,
+      new_sum_x,
+      new_sum_y,
+      new_min_x,
+      new_max_x,
+      new_min_y,
+      new_max_y,
+      new_tv_x
   } nobreak {
     sum_y - sum_x
   } where {
     // ── Index bounds ────────────────────────────────────────────
-    invariant: 0 <= i,
-    invariant: i <= xs.length(),
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length(),
 
     // ── Min/max for xs (universally quantified) ─────────────────
-    invariant: min_prefix_x(xs, min_x, i),
-    invariant: max_prefix_x(xs, max_x, i),
+    proof_invariant: min_prefix_x(xs, min_x, i),
+    proof_invariant: max_prefix_x(xs, max_x, i),
 
     // ── Min/max for ys (universally quantified) ─────────────────
-    invariant: min_prefix_y(ys, min_y, i),
-    invariant: max_prefix_y(ys, max_y, i),
+    proof_invariant: min_prefix_y(ys, min_y, i),
+    proof_invariant: max_prefix_y(ys, max_y, i),
 
     // ── Cross-array ordering from pointwise dominance ───────────
-    invariant: min_x <= min_y,
-    invariant: max_x <= max_y,
+    proof_invariant: min_x <= min_y,
+    proof_invariant: max_x <= max_y,
 
     // ── Sum ordering: pointwise xs <= ys lifts to sums ──────────
-    invariant: sum_y >= sum_x,
+    proof_invariant: sum_y >= sum_x,
 
     // ── Total variation of xs: non-negative ─────────────────────
-    invariant: tv_x >= 0,
+    proof_invariant: tv_x >= 0,
 
     // ── Sum bounds ──────────────────────────────────────────────
-    invariant: sum_x >= min_x * i,
-    invariant: sum_x <= max_x * i,
-
-    reasoning: (
+    proof_invariant: sum_x >= min_x * i,
+    proof_invariant: sum_x <= max_x * i,
+    proof_reasoning: (
       #| Eight state variables track properties of two arrays simultaneously.
       #|
       #| SUM ORDERING (sum_x, sum_y):

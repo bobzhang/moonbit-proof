@@ -5,9 +5,12 @@
 /// full band of prefix displacements `xs[k] - xs[0]`. The width of that band is
 /// always bounded by the running total variation, so at the end any difference
 /// `xs[i] - xs[j]` is bounded by `tv`.
-#requires(nonempty(xs))
-#ensures(tv_diameter_ok(xs, result))
-pub fn total_var_diameter(xs : FixedArray[Int]) -> Int {
+pub fn total_var_diameter(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: nonempty(xs),
+  proof_ensure: result => tv_diameter_ok(xs, result),
+} {
   for i = 0, tv = 0, sum = 0, lo = 0, hi = 0; i < xs.length() - 1; {
     let d = xs[i + 1] - xs[i]
     let abs_d = if d >= 0 { d } else { -d }
@@ -19,13 +22,13 @@ pub fn total_var_diameter(xs : FixedArray[Int]) -> Int {
   } nobreak {
     tv
   } where {
-    invariant: 0 <= i,
-    invariant: i <= xs.length() - 1,
-    invariant: tv >= 0,
-    invariant: sum == xs[i] - xs[0],
-    invariant: lo <= sum,
-    invariant: sum <= hi,
-    invariant: hi - lo <= tv,
-    invariant: prefix_in_band(xs, lo, hi, i),
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length() - 1,
+    proof_invariant: tv >= 0,
+    proof_invariant: sum == xs[i] - xs[0],
+    proof_invariant: lo <= sum,
+    proof_invariant: sum <= hi,
+    proof_invariant: hi - lo <= tv,
+    proof_invariant: prefix_in_band(xs, lo, hi, i),
   }
 }

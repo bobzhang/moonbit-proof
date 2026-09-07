@@ -10,9 +10,13 @@
 /// the returned index. We use squared distance (a-b)² instead of |a-b|
 /// because |a| ≤ |b| iff a² ≤ b², and squared distance avoids absolute-value
 /// case splits in the invariant.
-#requires(nonempty(xs))
-#ensures(find_closest_ok(xs, target, result))
-pub fn find_closest(xs : FixedArray[Int], target : Int) -> Int {
+pub fn find_closest(
+  xs : FixedArray[Int],
+  target : Int,
+) -> Int where {
+  proof_require: nonempty(xs),
+  proof_ensure: result => find_closest_ok(xs, target, result),
+} {
   for i = 1, best = 0; i < xs.length(); {
     let cur_sq = (xs[i] - target) * (xs[i] - target)
     let best_sq = (xs[best] - target) * (xs[best] - target)
@@ -21,12 +25,12 @@ pub fn find_closest(xs : FixedArray[Int], target : Int) -> Int {
   } nobreak {
     best
   } where {
-    invariant: 1 <= i,
-    invariant: i <= xs.length(),
-    invariant: 0 <= best,
-    invariant: best < i,
-    invariant: closest_in_prefix(xs, target, best, i),
-    reasoning: (
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length(),
+    proof_invariant: 0 <= best,
+    proof_invariant: best < i,
+    proof_invariant: closest_in_prefix(xs, target, best, i),
+    proof_reasoning: (
       #| We scan left to right, tracking the index `best` with minimum
       #| squared distance to `target` in the prefix xs[0..i).
       #|

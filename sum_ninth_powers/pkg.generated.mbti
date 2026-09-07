@@ -11,4 +11,3 @@ pub fn sum_ninth_powers(Int) -> Int
 // Type aliases
 
 // Traits
-

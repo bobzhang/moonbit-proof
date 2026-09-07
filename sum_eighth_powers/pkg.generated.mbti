@@ -11,4 +11,3 @@ pub fn sum_eighth_powers(Int) -> Int
 // Type aliases
 
 // Traits
-

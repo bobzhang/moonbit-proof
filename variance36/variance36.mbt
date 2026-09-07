@@ -1,7 +1,6 @@
 ///|
 /// 36-point variance identity:
 ///   36 * Sum x_i^2 - (Sum x_i)^2 = Sum_{i<j} (x_i - x_j)^2.
-#ensures(variance36_ok(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, result))
 pub fn variance36_gap(
   a : Int,
   b : Int,
@@ -39,7 +38,14 @@ pub fn variance36_gap(
   ah : Int,
   ai : Int,
   aj : Int,
-) -> Int {
+) -> Int where {
+  proof_ensure: result => {
+    variance36_ok(
+      a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y,
+      z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, result,
+    )
+  },
+} {
   36 *
   (
     a * a +

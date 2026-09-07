@@ -4,9 +4,12 @@
 ///
 /// Invariant:
 ///   sum == i²(2i²-1)
-#requires(nonneg(n))
-#ensures(odd_cubes_ok(n, result))
-pub fn odd_cubes(n : Int) -> Int {
+pub fn odd_cubes(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => odd_cubes_ok(n, result),
+} {
   for i = 0, sum = 0; i < n; {
     let term = 2 * i + 1
     let new_sum = sum + term * term * term
@@ -14,8 +17,8 @@ pub fn odd_cubes(n : Int) -> Int {
   } nobreak {
     sum
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: sum == i * i * (2 * i * i - 1),
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: sum == i * i * (2 * i * i - 1),
   }
 }

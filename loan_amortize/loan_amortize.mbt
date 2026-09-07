@@ -16,12 +16,17 @@
 /// The proof verifies that these conservation laws hold at EVERY step,
 /// not just at the end — catching rounding errors, off-by-one bugs,
 /// and accounting discrepancies that have caused real financial losses.
-#requires(valid_loan(init_bal, rate, pmt, n))
-#ensures(amort_ok(n, pmt, result))
-pub fn amortize(init_bal : Int, rate : Int, pmt : Int, n : Int) -> Int {
-  for i = 0, balance = init_bal, total_paid = 0, total_interest = 0,
-      total_principal = 0;
-      i < n; {
+pub fn amortize(
+  init_bal : Int,
+  rate : Int,
+  pmt : Int,
+  n : Int,
+) -> Int where {
+  proof_require: valid_loan(init_bal, rate, pmt, n),
+  proof_ensure: result => amort_ok(n, pmt, result),
+} {
+  for i = 0, balance = init_bal, total_paid = 0, total_interest = 0, total_principal = 0; i <
+     n; {
     // ── Compute period interest (basis points) ──────────────────
     let interest = balance * rate / 10000
 
@@ -31,28 +36,30 @@ pub fn amortize(init_bal : Int, rate : Int, pmt : Int, n : Int) -> Int {
     // ── Update balance ──────────────────────────────────────────
     let new_balance = balance - principal_paid
 
-    continue i + 1, new_balance, total_paid + pmt,
-      total_interest + interest, total_principal + principal_paid
+    continue i + 1,
+      new_balance,
+      total_paid + pmt,
+      total_interest + interest,
+      total_principal + principal_paid
   } nobreak {
     total_paid
   } where {
     // ── Index bounds ────────────────────────────────────────────
-    invariant: 0 <= i,
-    invariant: i <= n,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
 
     // ── Accounting identity: payments = interest + principal ────
-    invariant: total_paid == total_interest + total_principal,
+    proof_invariant: total_paid == total_interest + total_principal,
 
     // ── Principal conservation: principal paid = balance change ─
-    invariant: total_principal == init_bal - balance,
+    proof_invariant: total_principal == init_bal - balance,
 
     // ── Fixed payment schedule ──────────────────────────────────
-    invariant: total_paid == i * pmt,
+    proof_invariant: total_paid == i * pmt,
 
     // ── Derived identity (redundant but aids solver) ───────────
-    invariant: total_interest == total_paid - total_principal,
-
-    reasoning: (
+    proof_invariant: total_interest == total_paid - total_principal,
+    proof_reasoning: (
       #| Five state variables track the complete amortization schedule.
       #|
       #| ACCOUNTING IDENTITY: total_paid = total_interest + total_principal.

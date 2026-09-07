@@ -9,9 +9,12 @@
 ///   3. tv >= sum AND tv >= -sum (triangle inequality)
 ///
 /// Preservation uses |d| >= d and |d| >= -d for d = xs[i+1]-xs[i].
-#requires(has_two(xs))
-#ensures(tv_ok(xs, result))
-pub fn total_var(xs : FixedArray[Int]) -> Int {
+pub fn total_var(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: has_two(xs),
+  proof_ensure: result => tv_ok(xs, result),
+} {
   for i = 0, tv = 0, sum = 0; i < xs.length() - 1; {
     let d = xs[i + 1] - xs[i]
     let abs_d = if d >= 0 { d } else { -d }
@@ -21,11 +24,11 @@ pub fn total_var(xs : FixedArray[Int]) -> Int {
   } nobreak {
     tv
   } where {
-    invariant: 0 <= i,
-    invariant: i <= xs.length() - 1,
-    invariant: tv >= 0,
-    invariant: sum == xs[i] - xs[0],
-    invariant: tv >= sum,
-    invariant: tv >= -sum,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length() - 1,
+    proof_invariant: tv >= 0,
+    proof_invariant: sum == xs[i] - xs[0],
+    proof_invariant: tv >= sum,
+    proof_invariant: tv >= -sum,
   }
 }

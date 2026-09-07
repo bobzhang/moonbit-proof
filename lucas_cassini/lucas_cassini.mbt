@@ -7,9 +7,12 @@
 ///
 /// The Fibonacci/Lucas recurrence step `(a, b) -> (b, a + b)` negates the
 /// quadratic form, so the result always has square 25.
-#requires(nonneg(n))
-#ensures(lucas_cassini_ok(result))
-pub fn lucas_cassini(n : Int) -> Int {
+pub fn lucas_cassini(
+  n : Int,
+) -> Int where {
+  proof_require: nonneg(n),
+  proof_ensure: result => lucas_cassini_ok(result),
+} {
   for i = 0, a = 2, b = 1, sign = 1; i < n; {
     let new_a = b
     let new_b = a + b
@@ -18,11 +21,11 @@ pub fn lucas_cassini(n : Int) -> Int {
   } nobreak {
     a * a + a * b - b * b
   } where {
-    invariant: 0 <= i,
-    invariant: i <= n,
-    invariant: a >= 1,
-    invariant: b >= 1,
-    invariant: sign == 1 || sign == -1,
-    invariant: a * a + a * b - b * b == 5 * sign,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= n,
+    proof_invariant: a >= 1,
+    proof_invariant: b >= 1,
+    proof_invariant: sign == 1 || sign == -1,
+    proof_invariant: a * a + a * b - b * b == 5 * sign,
   }
 }

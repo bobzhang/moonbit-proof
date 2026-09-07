@@ -15,12 +15,14 @@
 /// Proves simultaneously:
 ///   0 <= profit <= max - min        (profit within range)
 ///   TV >= xs[i] - xs[j] for all i,j (all-pairs variation bound)
-#requires(at_least_two(xs))
-#ensures(digest_ok(xs, result))
-pub fn digest(xs : FixedArray[Int]) -> Int {
-  for i = 1, min_p = xs[0], max_p = xs[0], profit = 0, sum = xs[0], tv = 0,
-      tele = 0, lo = 0, hi = 0;
-      i < xs.length(); {
+pub fn digest(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_require: at_least_two(xs),
+  proof_ensure: result => digest_ok(xs, result),
+} {
+  for i = 1, min_p = xs[0], max_p = xs[0], profit = 0, sum = xs[0], tv = 0, tele = 0, lo = 0, hi = 0; i <
+     xs.length(); {
     // ── Price extremes ──────────────────────────────────────────
     let new_min = if xs[i] < min_p { xs[i] } else { min_p }
     let new_max = if xs[i] > max_p { xs[i] } else { max_p }
@@ -42,46 +44,52 @@ pub fn digest(xs : FixedArray[Int]) -> Int {
     let new_lo = if new_tele < lo { new_tele } else { lo }
     let new_hi = if new_tele > hi { new_tele } else { hi }
 
-    continue i + 1, new_min, new_max, new_profit, new_sum, new_tv, new_tele,
-      new_lo, new_hi
+    continue i + 1,
+      new_min,
+      new_max,
+      new_profit,
+      new_sum,
+      new_tv,
+      new_tele,
+      new_lo,
+      new_hi
   } nobreak {
     profit
   } where {
     // ── Index bounds ────────────────────────────────────────────
-    invariant: 1 <= i,
-    invariant: i <= xs.length(),
+    proof_invariant: 1 <= i,
+    proof_invariant: i <= xs.length(),
 
     // ── Min/max universally quantified ──────────────────────────
-    invariant: min_in_prefix(xs, min_p, i),
-    invariant: max_in_prefix(xs, max_p, i),
-    invariant: max_p >= min_p,
+    proof_invariant: min_in_prefix(xs, min_p, i),
+    proof_invariant: max_in_prefix(xs, max_p, i),
+    proof_invariant: max_p >= min_p,
 
     // ── Profit: doubly quantified optimality ────────────────────
-    invariant: profit >= 0,
-    invariant: profit_optimal(xs, profit, i),
+    proof_invariant: profit >= 0,
+    proof_invariant: profit_optimal(xs, profit, i),
 
     // ── Cross-technique: profit bounded by range ────────────────
-    invariant: profit <= max_p - min_p,
+    proof_invariant: profit <= max_p - min_p,
 
     // ── Total variation ─────────────────────────────────────────
-    invariant: tv >= 0,
+    proof_invariant: tv >= 0,
 
     // ── Telescoping identity ────────────────────────────────────
-    invariant: tele == xs[i - 1] - xs[0],
+    proof_invariant: tele == xs[i - 1] - xs[0],
 
     // ── Triangle inequality ─────────────────────────────────────
-    invariant: tv >= tele,
-    invariant: tv >= -tele,
+    proof_invariant: tv >= tele,
+    proof_invariant: tv >= -tele,
 
     // ── Band tracking ───────────────────────────────────────────
-    invariant: lo <= tele,
-    invariant: tele <= hi,
-    invariant: lo <= 0,
-    invariant: hi >= 0,
-    invariant: tv >= hi - lo,
-    invariant: prefix_in_band(xs, lo, hi, i - 1),
-
-    reasoning: (
+    proof_invariant: lo <= tele,
+    proof_invariant: tele <= hi,
+    proof_invariant: lo <= 0,
+    proof_invariant: hi >= 0,
+    proof_invariant: tv >= hi - lo,
+    proof_invariant: prefix_in_band(xs, lo, hi, i - 1),
+    proof_reasoning: (
       #| Nine state variables combine six proof techniques simultaneously.
       #|
       #| MIN/MAX (min_p, max_p): universally quantified bounds over the prefix.

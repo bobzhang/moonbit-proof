@@ -6,8 +6,11 @@
 ///
 /// The key invariant is the encoded absolute-value bound:
 ///   abs_sum >= total  and  abs_sum >= -total
-#ensures(abs_sum_bound_ok(result))
-pub fn abs_sum_gap(xs : FixedArray[Int]) -> Int {
+pub fn abs_sum_gap(
+  xs : FixedArray[Int],
+) -> Int where {
+  proof_ensure: result => abs_sum_bound_ok(result),
+} {
   for i = 0, abs_sum = 0, total = 0; i < xs.length(); {
     let x = xs[i]
     let abs_x = if x >= 0 { x } else { -x }
@@ -18,9 +21,9 @@ pub fn abs_sum_gap(xs : FixedArray[Int]) -> Int {
     let abs_total = if total >= 0 { total } else { -total }
     abs_sum - abs_total
   } where {
-    invariant: 0 <= i,
-    invariant: i <= xs.length(),
-    invariant: abs_sum >= total,
-    invariant: abs_sum >= -total,
+    proof_invariant: 0 <= i,
+    proof_invariant: i <= xs.length(),
+    proof_invariant: abs_sum >= total,
+    proof_invariant: abs_sum >= -total,
   }
 }

@@ -11,4 +11,3 @@ pub fn closest_key_total(FixedArray[Int], Int) -> Int
 // Type aliases
 
 // Traits
-
